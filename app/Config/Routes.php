@@ -11,9 +11,10 @@ $routes = Services::routes();
  * --------------------------------------------------------------------
  */
 $routes->setDefaultNamespace('App\Controllers');
-$routes->setDefaultController('Home');
+$routes->setDefaultController('Common\Landing_page');
 $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
+$routes->setAutoRoute(true);
 $routes->set404Override();
 // The Auto Routing (Legacy) is very dangerous. It is easy to create vulnerable apps
 // where controller filters or CSRF protection are bypassed.
@@ -29,7 +30,14 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
-$routes->get('/', 'Home::index');
+$routes->get('/', 'Common\Landing_page::index');
+$routes->get('/dashboard', 'Common\Landing_page::dashboard');
+
+// User login route
+$routes->get('common/login', 'Common\Login::index');
+
+// Admin login route
+$routes->get('common/admin', 'Common\Admin::index');
 
 /*
  * --------------------------------------------------------------------

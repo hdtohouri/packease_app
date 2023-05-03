@@ -37,6 +37,14 @@ abstract class BaseController extends Controller
      */
     protected $helpers = [];
 
+
+    /**
+     * Data to be transmitted to views will be stored in this
+     * variable
+     * @var array
+     */
+    protected array $view_data = [];
+
     /**
      * Be sure to declare properties for any property fetch you initialized.
      * The creation of dynamic property is deprecated in PHP 8.2.
@@ -54,5 +62,17 @@ abstract class BaseController extends Controller
         // Preload any models, libraries, etc, here.
 
         // E.g.: $this->session = \Config\Services::session();
+        $this->session = \Config\Services::session();
+        //$this->view_data['agent_id']   = $this->session->get('id_agent');
+        //$this->view_data['agent_name'] = $this->session->get('nom_complet');
+        //$this->view_data['profil_data'] = $this->session->get('permissions');
     }
+
+    protected function display_view($view_to_be_displayed)
+    {
+        echo view('template/header');
+        echo view($view_to_be_displayed, $this->view_data);
+        echo view('template/footer');
+    }
+
 }
