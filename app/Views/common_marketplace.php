@@ -78,15 +78,6 @@
         <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
       </form>
     </section>
-    <section class="bg-dark">
-        <div class="container">
-            <div class="ronded d-sm-flex ">
-                <div>
-                  
-                </div>  
-            </div>
-        </div>  
-    </section>
     <section>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
@@ -121,6 +112,7 @@
             <div class="swiper-pagination"></div>
         </div>
     </section>
+
     <div class="container">
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -130,14 +122,13 @@
                     <hr>
                         <!-- Nested Row within Card Body -->
                         <div class="row">
+                            <h4 class='text-center'>Our Categories</h4>
+                            <a href=""></a>
                             <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/72.webp'); ?>" alt="">
-                              <h4 class='text-center'>Carton</h4>
                             </div>
                             <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/93.webp'); ?>" alt="">
-                              <h4 class='text-center'>Plastique</h4>
                             </div>
-                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/72.webp'); ?>" alt="">
-                              <h4 class='text-center'>Carton</h4>
+                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/76.webp'); ?>" alt="">
                             </div>
                             
                         </div>
@@ -145,7 +136,7 @@
             </div>
         </div>
     </div>
-    
+
     <section id="cover" class="container">
         <div class="row g-2 justify-content-around">
             <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
@@ -155,8 +146,8 @@
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
                 <div class="p-3">
-                    <p>Packease offers customized packaging for cosmetic products, allowing companies to create a unique and brand image.
-                        By customizing their packaging, companies can communicate their message and visual aesthetic.
+                    <p>Our catalog is filled with a wide range of cosmetic products packaging that are specially formulated to meet your unique needs. 
+                        Whether you're looking for skincare packaging to achieve a clear and radiant complexion or makeup packaging to enhance your product beauty, PackEase has got you covered.
                     </p>
                     <button class="btn btn-primary rounded-3 custom-btn" type="button">
                         <a href="<?php echo base_url('common/marketplace'); ?>" class="nav-link">
@@ -167,10 +158,49 @@
             </div>  
         </div>
     </section>
-    
-    
-    
-    
+    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="5000">
+            <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+            <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
+            </div>
+            <div class="carousel-item">
+            <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">id_usr</th>
+                                            <th scope="col">usr_name</th>
+                                            <th scope="col">full_name</th>
+                                            <th scope="col">subscription_date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $i=0; foreach($user_list as $user): ?>
+                                        <tr>
+                                            <td><?= ++$i ?></td>
+                                            <td><?= $user['image'] ?></td>
+                                            <td><?= $user['description'] ?></td>
+                                            <td><?= $user['price'] ?></td>
+                                            <td><?= $user['status'] ?></td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
     
     <?php echo view('template/footer.php');?>
 

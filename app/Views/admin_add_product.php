@@ -48,9 +48,6 @@
                                     
                                     <form class="user" method="post" action="<?= base_url('common/dashboard/add_product') ?>" enctype="multipart/form-data" autocomplete="off">
                                         <div class="mb-4 form-group">
-                                            <input type="text" class="form-control form-control-user " id="name" name="name" placeholder="Product Name" autofocus />
-                                        </div>
-                                        <div class="mb-4 form-group">
                                             <input type="number" class="form-control form-control-user " id="price" name="price" placeholder="Product Price" autofocus />
                                         </div>
                                         <div class="mb-3">

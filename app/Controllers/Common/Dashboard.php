@@ -14,11 +14,7 @@ class Dashboard extends BaseController
 	public function add_product()
 	{
 		$validation_rules = array(
-            'name' => [
-                'label'  => 'Product Name',
-                'rules'  => 'required|min_length[3]'
-            ],
-            'price' => [
+           'price' => [
                 'label'  => 'Product Price',
                 'rules'  => 'required|alpha_numeric_punct'
             ],
@@ -54,7 +50,6 @@ class Dashboard extends BaseController
             return;
         }
 		
-            $prod_name = $this->request->getPost('name',FILTER_SANITIZE_STRING);
             $prod_price= $this->request->getPost('price',FILTER_SANITIZE_NUMBER_FLOAT);
 			$file = $this->request->getFile('file');
             $prod_description = $this->request->getPost('description',FILTER_SANITIZE_STRING);
@@ -64,7 +59,6 @@ class Dashboard extends BaseController
             $file->move('./uploads', $newName);
 
         $data = [
-            'name'=>$prod_name,
             'price'=>$prod_price,
             'image'=>$file,
             'description'=>$prod_description,

@@ -23,4 +23,6 @@ class StandardModel extends Model
         $result = $this->select($field)->getWhere($where)->getRowArray();
         return $result[$field] ?? '';
     }
+
+  
 }
