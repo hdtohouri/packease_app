@@ -126,12 +126,22 @@
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="img/4.png" class="mx-auto d-block w-25" alt="...">
+                <img src="img/pic2.png" class="mx-auto d-block w-25" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                 </div>
             </div>
             <div class="carousel-item">
                 <img src="img/5.png" class="mx-auto d-block w-25" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/pic1.png" class="mx-auto d-block w-25" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img src="img/pic.png" class="mx-auto d-block w-25" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                 </div>
             </div>

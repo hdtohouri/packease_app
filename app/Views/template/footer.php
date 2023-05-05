@@ -39,7 +39,7 @@
                     <i class="fas fa-gift me-3"></i>PACK | EASE
                 </h6>
                 <p>
-                Our mission is to embellish <br> your products with the best packaging
+                Surely Packed <br> Simply delivered
                 </p>
                 </div>
                 <!-- Grid column -->

@@ -73,17 +73,25 @@
           type="search"
           class="form-control rounded"
           placeholder='Search'
-          style="min-width: 225px;"
+          style="min-width: 230px;"
         />
         <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
       </form>
     </section>
-   
+    <section class="bg-dark">
+        <div class="container">
+            <div class="ronded d-sm-flex ">
+                <div>
+                  
+                </div>  
+            </div>
+        </div>  
+    </section>
     <section>
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide">
-                    <img src="<?php echo base_url("img/82.webp")?>" />
+                    <img src="<?php echo base_url("img/40.webp")?>" />
                 </div>
                 <div class="swiper-slide">
                     <img src="<?php echo base_url("img/79.webp")?>" />
@@ -98,23 +106,70 @@
                     <img src="<?php echo base_url("img/21.webp")?>" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="<?php echo base_url("img/21.webp")?>" />
+                    <img src="<?php echo base_url("img/30.webp")?>" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="<?php echo base_url("img/21.webp")?>" />
+                    <img src="<?php echo base_url("img/36.webp")?>" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="<?php echo base_url("img/21.webp")?>" />
+                    <img src="<?php echo base_url("img/44.webp")?>" />
                 </div>
                 <div class="swiper-slide">
-                    <img src="<?php echo base_url("img/21.webp")?>" />
+                    <img src="<?php echo base_url("img/43.webp")?>" />
                 </div>
             </div>
             <div class="swiper-pagination"></div>
         </div>
-
-  
     </section>
+    <div class="container">
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+            <div class="col-xl-10 col-lg-10 col-md-9">
+                    <div class="card-body p-0">
+                    
+                    <hr>
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/72.webp'); ?>" alt="">
+                              <h4 class='text-center'>Carton</h4>
+                            </div>
+                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/93.webp'); ?>" alt="">
+                              <h4 class='text-center'>Plastique</h4>
+                            </div>
+                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/72.webp'); ?>" alt="">
+                              <h4 class='text-center'>Carton</h4>
+                            </div>
+                            
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+    <section id="cover" class="container">
+        <div class="row g-2 justify-content-around">
+            <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
+                <div class="p-3 home">
+                    <img data-speed="10" class="home-parallax" src=<?php echo base_url('img/pic.png'); ?> data-speed="5" alt="hero section" class="mx-auto d-block w-100 img-fluid" id="move">
+                </div>
+            </div>
+            <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
+                <div class="p-3">
+                    <p>Packease offers customized packaging for cosmetic products, allowing companies to create a unique and brand image.
+                        By customizing their packaging, companies can communicate their message and visual aesthetic.
+                    </p>
+                    <button class="btn btn-primary rounded-3 custom-btn" type="button">
+                        <a href="<?php echo base_url('common/marketplace'); ?>" class="nav-link">
+                              <i class="fas fa-download"></i>  Download Catalogue</i>
+                        </a>
+                    </button>
+                </div>
+            </div>  
+        </div>
+    </section>
+    
+    
+    
     
     
     <?php echo view('template/footer.php');?>

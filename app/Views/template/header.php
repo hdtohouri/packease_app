@@ -45,7 +45,7 @@
                 </button>
                 <button type="button" class="btn mx-5 position-relative">
                     <a href="<?php echo base_url('common/panier'); ?>">
-                            <i class="fas fa-shopping-cart">  </i>
+                        <i class="fas fa-shopping-cart">  </i>
                     </a>
                     <span class="position-absolute top-0 start translate-middle badge rounded-pill bg-danger">
                         0
