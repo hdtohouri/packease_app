@@ -158,7 +158,7 @@
             </div>  
         </div>
     </section>
-    <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
             <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
@@ -183,20 +183,24 @@
                                         <thead>
                                             <tr>
                                             <th scope="col">#</th>
-                                            <th scope="col">id_usr</th>
-                                            <th scope="col">usr_name</th>
-                                            <th scope="col">full_name</th>
-                                            <th scope="col">subscription_date</th>
+                                            <th scope="col">image</th>
+                                            <th scope="col">id</th>
+                                            <th scope="col">image link</th>
+                                            <th scope="col">description</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Status</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                        <?php $i=0; foreach($user_list as $user): ?>
+                                        <?php $i=0; foreach($product_list as $product): ?>
                                         <tr>
                                             <td><?= ++$i ?></td>
-                                            <td><?= $user['image'] ?></td>
-                                            <td><?= $user['description'] ?></td>
-                                            <td><?= $user['price'] ?></td>
-                                            <td><?= $user['status'] ?></td>
+                                            <td><img src="<?= $product['image'] ?>" alt="Product Image"></td>
+                                            <td><?= $product['id'] ?></td>
+                                            <td><?= $product['image'] ?></td>
+                                            <td><?= $product['description'] ?></td>
+                                            <td><?= $product['price'] ?></td>
+                                            <td><?= $product['status'] ?></td>
                                         </tr>
                                         <?php endforeach; ?>
                                         </tbody>

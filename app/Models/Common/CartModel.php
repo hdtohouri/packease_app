@@ -36,7 +36,7 @@ class CartModel extends Model
     {
         $builder = $this->builder();
         $builder = $this ->db->table('products');
-        $builder->select('image,description,price,statut');
+        $builder->select('id,image,description,price,statut');
         $builder->orderBy('created_at', 'asc');
         return $this->findAll();
     }

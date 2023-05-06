@@ -9,7 +9,7 @@ class Marketplace extends BaseController
 	public function index()
 	{
 		$userModel = new CartModel();
-        $data['user_list'] = $userModel->get_product_list();
+        $data['product_list'] = $userModel->get_product_list();
         return view('common_marketplace', $data);
 	    //echo view("common_marketplace");
 	}
