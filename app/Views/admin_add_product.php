@@ -50,14 +50,13 @@
                                         <div class="mb-4 form-group">
                                             <label for="category">Choose a category:</label>
                                             <select name="category" id="category">
-                                                <option value="volvo">Volvo</option>
-                                                <option value="saab">Saab</option>
-                                                <option value="opel">Opel</option>
-                                                <option value="audi">Audi</option>
+                                                <?php foreach ($categories as $category) : ?>
+                                                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
+                                                <?php endforeach; ?>
                                             </select>
                                         </div>    
                                         <div class="mb-4 form-group">
-                                            <input type="number" class="form-control form-control-user " id="price" name="price" placeholder="Product Price" autofocus />
+                                            <input type="number" class="form-control form-control-user" id="price" name="price" placeholder="Product Price" autofocus />
                                         </div>
                                         <div class="mb-3">
                                             <label for="image" class="form-label">Product image</label>
@@ -68,10 +67,11 @@
                                             <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Product Description" rows="3"></textarea>
                                         </div>
                                         <div class="mb-4 form-group">
-                                            <input type="number" class="form-control form-control-user " id="status" name="status" placeholder="Product Status" autofocus />
+                                            <input type="number" class="form-control form-control-user" id="status" name="status" placeholder="Product Status" autofocus />
                                         </div>
                                         <input type="submit" class="btn btn-primary btn-user btn-block" value="add product" />
                                     </form>
+
                                     <hr>
                                     <div class="text-center">
                                         <a class="small" href="<?php echo base_url('common/dashboard'); ?>">

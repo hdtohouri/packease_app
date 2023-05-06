@@ -141,3 +141,8 @@ h2::after{
     text-transform: uppercase;
     color: #db584e;
 }
+
+#map {
+    height: 400px;
+    width: 100%;
+}

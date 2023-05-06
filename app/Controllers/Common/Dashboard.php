@@ -68,10 +68,11 @@ class Dashboard extends BaseController
             'image'=>$url,
             'description'=>$prod_description,
 			'status'=>$prod_status,
+            'category'=>$prod_category,
         ];	
 
 	    $form_manager = new CartModel();
-
+        $info['categories'] = $userModel->get_categories();
 	    $user_details = $form_manager->insert_in_db($data);
 
         if( is_null($user_details) )
@@ -84,7 +85,7 @@ class Dashboard extends BaseController
             $message = "<div class='alert alert-success' role='alert'>Le produit a bien été ajouté.</div>";
             echo view('admin_add_product', array('special_message' => $message));
         }
-
+        return view('admin_add_product', $info);
 	}
 
     public function list_user()

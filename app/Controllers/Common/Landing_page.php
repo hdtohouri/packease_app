@@ -6,8 +6,10 @@ class Landing_page extends BaseController
 {
     public function index()
     {
-
-        return view('landing_page');
+        
+	
+	    $data['api_key'] = 'AIzaSyCujtCrsQkuLxHgmVMzf_CTiUe6m-Kx0hk';
+        return view('landing_page', $data);
     }
     
 }

@@ -155,7 +155,6 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-
     <!--Section: Contact v.2-->
     <section class="col-mb-4">
 
@@ -192,9 +191,9 @@
             </div>
         </form>
     </section>
-<!--Section: Contact v.2-->
+    <!--Section: Contact v.2-->
 
-
+    
     <div class="container col-md-8" id="reviews">
        <div class="row">
             <div class="col-md-12 col-center">
@@ -249,6 +248,7 @@
             </div>
        </div>
     </div>
+    
     
     <?php echo view('template/footer.php');?>
 

@@ -41,4 +41,12 @@ class CartModel extends Model
         return $this->findAll();
     }
 
+    public function get_categories()
+    {
+        $builder = $this->builder();
+        $builder = $this ->db->table('category');
+        $builder->select('id,name');
+        return $this->findAll();
+    }
+
 }
