@@ -111,6 +111,7 @@
             });
         }
         google.maps.event.addDomListener(window, 'load', initMap);
+        
     </script>
     
     <?php echo view('template/footer.php');?>
