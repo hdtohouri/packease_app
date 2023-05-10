@@ -39,8 +39,8 @@
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
                 <div class="p-3">
-                    <p class="fs-18">"Packease offers customized packaging for cosmetic products, allowing companies to create a unique and brand image.
-                        By customizing their packaging, companies can communicate their message and visual aesthetic."
+                    <p class="fs-18">"With our personalized cosmetic packaging service, you have the flexibility to choose from a wide range of 
+                        customization options to create an packaging design that stands out in the market. Whether you want to print your logo on your packaging, design a full custom packaging, or explore special finishing options, we can help you achieve your goals. We use the latest printing technologies to ensure that the colors are vibrant and the finish is of the highest quality, enhancing the perception of quality and professionalism of your product."
                     </p>
                 </div>
             </div>  
@@ -52,8 +52,8 @@
     <!--Section heading-->
         <h2 class="h1-responsive font-weight-bold text-center my-4" id="contact">Customizations</h2>
         <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly.<br>  Our team will come back to you within
-            a matter of hours to help you.</p>
+        <p class="text-center w-responsive mx-auto mb-5">Contact us today to learn more about our personalized cosmetic packaging service and how<br> we can help you bring your vision to life. 
+            We look forward to working with<br> you to create a custom packaging solution that</p>
 
             <?php
                 if( isset($validation) )
@@ -65,23 +65,40 @@
 
         <form class="user" method="post" action="<?php echo base_url('common/login/contactus'); ?>">
             <div class="mb-4 col-md-6 col-center m-auto">
+                <label for="company" class="form-label">Company Name :</label>
+                <input type="text" class="form-control" id="company" placeholder="Company Name">
+            </div> 
+            <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="name" class="form-label">Your Name :</label>
                 <input type="text" class="form-control" id="name" placeholder="name">
+            </div>
+            <div class="mb-4 col-md-6 col-center m-auto">
+                <label for="url" class="form-label">Website url :</label>
+                <input type="text" class="form-control" id="url" placeholder="Website url">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="email" class="form-label">Email address :</label>
                 <input type="email" class="form-control" id="email" placeholder="email">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
-                <label for="message" class="form-label">Your message :</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
+                <label for="Product" class="form-label">Product to be packed :</label>
+                <input type="text" class="form-control" id="Product" placeholder="Product to be packed">
             </div>
-             <br><br>
+            <div class="mb-4 col-md-6 col-center m-auto">
+                <label for="requierements" class="form-label">Specific requierements :</label>
+                <textarea class="form-control" id="requierements" rows="3"></textarea>
+            </div>
+            <div class="mb-4 col-md-6 col-center m-auto">
+                <input type="file" name="userfile" size="20">
+                <br><br>
+            </div>
+             <br>
             <div class="col-lg-12 text-center"> 
                 <input type="submit" class="btn btn-primary btn-user btn-block " value="Envoyer" />
             </div>
         </form>
     </section>
+    <br>
     <!--Section: Contact v.2-->
     <?php echo view('template/footer.php');?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
