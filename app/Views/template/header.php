@@ -27,10 +27,10 @@
                             <a href="<?php echo base_url('common/discover'); ?>" class="nav-link">Discover</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?php echo base_url('#reviews'); ?>" class="nav-link">Reviews</a>
+                            <a href="<?php echo base_url('common/customizations'); ?>" class="nav-link">Customizations</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?php echo base_url('#contact'); ?>" class="nav-link">Contact</a>
+                            <a href="<?php echo base_url('#contact'); ?>" class="nav-link">Eco Pack</a>
                         </li>
                     </ul>
                 </div>

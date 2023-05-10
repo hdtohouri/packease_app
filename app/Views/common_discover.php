@@ -131,11 +131,6 @@
             </div>   
        </div>
     </div>
-
-
-    
-
-  
     
     <div class="col-md-12 col-center">
         <h2>OUR Location</h2>            
