@@ -4,7 +4,7 @@
         
         <nav class="navbar navbar-expand-lg navbar-light  zindex-fixed">
             <div class="container">
-                <a href="#" class="navbar-brand logo"><span>pack</span> | ease</a>
+                <a href="<?php echo base_url('#'); ?>" class="navbar-brand logo"><span>pack</span> | ease</a>
 
                 <button class="navbar-toggler" type="button" 
                     data-bs-toggle="collapse" 
@@ -60,7 +60,7 @@
                                 <i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo session('usr_name'); ?>
                             </button>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Parameters</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('common/userparameter'); ?>">Parameters</a></li>
                                 <li><a class="dropdown-item" href="#">My Orders</a></li>
                                 <li><a class="dropdown-item" href="#">Update Password</a></li>
                                 <li><hr class="dropdown-divider"></li>

@@ -17,6 +17,37 @@
     <link rel="stylesheet" href="<?php echo base_url('css/map.css'); ?>">
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="icon"  href="<?php echo base_url('favicon.ico'); ?>">
+
+    <style>
+    html,
+    body {
+      position: relative;
+      height: 100%;
+    }
+
+    
+
+    .swiper {
+      width: 300px;
+      height: 300px;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -150px;
+      margin-top: -150px;
+    }
+
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+</head>
     <title>Packease</title>
 </head>
 <body>
@@ -92,12 +123,49 @@
         </div>
         
     </section>
+    <div class="container col-md-8" id="reviews">
+       <div class="row">
+            <div class="col-md-12 col-center">
+                <h2>OUR TEAM</h2>
+                
+            </div>   
+       </div>
+    </div>
 
+    
+
+  <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      effect: "cube",
+      grabCursor: true,
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+      },
+      autoplay: {
+        delay: 2500,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: ".swiper-pagination",
+      },
+    });
+  </script>
+    
+    <div class="col-md-12 col-center">
+        <h2>OUR Location</h2>            
+    </div>   
     <div id="map"></div>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCujtCrsQkuLxHgmVMzf_CTiUe6m-Kx0hk"></script>
     <script>
         function initMap() {
-            var myLatLng = {lat: 30.41670036, lng: -9.60000038};
+            var myLatLng = {lat: 30.3960825, lng:  -9.5145127};
 
             var map = new google.maps.Map(document.getElementById('map'), {
                 center: myLatLng,

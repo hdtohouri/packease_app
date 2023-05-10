@@ -58,6 +58,9 @@
                                     <div class="text-center">
                                         <a class="small" href="<?php echo base_url('#'); ?>">Mot de passe oublié ?</a>
                                     </div>
+                                    <div class="text-center">
+                                    <a href="<?php echo base_url('#'); ?>">Back to Home</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

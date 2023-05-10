@@ -131,6 +131,23 @@ class User extends Model
        return $this->findAll();
    }
    
+   public function user_info($user_name)
+   {
+       $builder = $this->builder();
+       $builder = $this ->db->table('utilisateurs_internes');
+       $builder->where('usr_name', $user_name);
+       $builder->select('usr_name,full_name,subscription_date,email_address');
+       $result = $builder->get();
+        $row = $result->getRowArray();
+        if(count($result->getResultArray())== 1)
+        {
+            return true; 
+        }
+        else
+        {
+            return false;
+        }
+   }
 
 
 }

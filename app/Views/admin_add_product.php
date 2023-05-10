@@ -48,13 +48,12 @@
                                     
                                     <form class="user" method="post" action="<?= base_url('common/dashboard/add_product') ?>" enctype="multipart/form-data" autocomplete="off">
                                         <div class="mb-4 form-group">
-                                            <label for="category">Choose a category:</label>
+                                            <label for="category"></label>
                                             <select name="category" id="category">
-                                                <?php foreach ($categories as $category) : ?>
-                                                    <option value="<?= $category['id'] ?>"><?= $category['name'] ?></option>
-                                                <?php endforeach; ?>
+                                                <option value="">--Please choose a category--</option>
+                                                
                                             </select>
-                                        </div>    
+                                        </div>   
                                         <div class="mb-4 form-group">
                                             <input type="number" class="form-control form-control-user" id="price" name="price" placeholder="Product Price" autofocus />
                                         </div>

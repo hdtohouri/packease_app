@@ -113,30 +113,6 @@
         </div>
     </section>
 
-    <div class="container">
-        <!-- Outer Row -->
-        <div class="row justify-content-center">
-            <div class="col-xl-10 col-lg-10 col-md-9">
-                    <div class="card-body p-0">
-                    
-                    <hr>
-                        <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <h4 class='text-center'>Our Categories</h4>
-                            <a href=""></a>
-                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/72.webp'); ?>" alt="">
-                            </div>
-                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/93.webp'); ?>" alt="">
-                            </div>
-                            <div class="col-lg-4 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/76.webp'); ?>" alt="">
-                            </div>
-                            
-                        </div>
-                    </div>
-            </div>
-        </div>
-    </div>
-
     <section id="cover" class="container">
         <div class="row g-2 justify-content-around">
             <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
@@ -158,46 +134,46 @@
             </div>  
         </div>
     </section>
-    
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                            <th scope="col">#</th>
-                                            <th scope="col">image</th>
-                                            <th scope="col">id</th>
-                                            <th scope="col">image link</th>
-                                            <th scope="col">description</th>
-                                            <th scope="col">Price</th>
-                                            <th scope="col">Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        <?php $i=0; foreach($product_list as $product): ?>
-                                        <tr>
-                                            <td><?= ++$i ?></td>
-                                            <td><img src="<?= $product['image'] ?>" alt="Product Image"></td>
-                                            <td><?= $product['id'] ?></td>
-                                            <td><?= $product['image'] ?></td>
-                                            <td><?= $product['description'] ?></td>
-                                            <td><?= $product['price'] ?></td>
-                                            <td><?= $product['status'] ?></td>
-                                        </tr>
-                                        <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-        <?php $i = 0; foreach ($product_list as $product) : ?>
-        <?= ++$i ?>
-        <div class="card" style="width: 18rem;">
-            <img src="<?= $product['image'] ?>"  class="card-img-top" alt="Product Image">
-            <div class="card-body">
-                <h5 class="card-title"><?= $product['name'] ?></h5>
-                <p class="card-text"><?= $product['description'] ?></p>
-                <p class="card-text"><?= $product['price'] ?></p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    <?php endforeach; ?>
 
+  <div class="container mt-5" >
+		<div class="row">
+			<div class="col-md-3">
+				<div class="card mb-3">
+					<div class="card-header bg-transparent text-center">
+						<h5>Categories</h5>
+					</div>
+					<div class="card-body">
+						<ul class="list-unstyled">
+							<li><a href="<?= base_url('#') ?>">All Products</a></li>
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div class="row">
+					<?php foreach ($product_list as $product) { ?>
+					<div class="col-md-4">
+						<div class="card mb-3">
+							<div class="card-header bg-transparent text-center">
+								<img src="<?= $product['image'] ?>" alt="Product Image" class="img-fluid">
+								<div class="offer"><?= $product['price'] ?>% OFF</div>
+							</div>
+							<div class="card-body">
+								<p class="card-text"><?= $product['description'] ?></p>
+								<p class="card-text"><span class="text-primary">Dh<?= $product['price'] ?></span> <del class="text-muted">Dh<?= $product['price'] ?></del></p>
+								<a href="#" class="btn btn-primary btn-block">
+                  <i class="fas fa-shopping-cart">  </i>
+                  Add to Cart</a>
+							</div>
+						</div>
+					</div>
+					<?php } ?>
+				</div>
+			</div>
+		</div>
+	</div>
+    
     
     <?php echo view('template/footer.php');?>
 
@@ -232,4 +208,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
+
 
