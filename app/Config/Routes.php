@@ -39,6 +39,8 @@ $routes->get('common/login', 'Common\Login::index');
 // Admin login route
 $routes->get('common/admin', 'Common\Admin::index');
 
+$routes->get('common/marketplace/pdf', 'Common\Marketplace::pdf');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing

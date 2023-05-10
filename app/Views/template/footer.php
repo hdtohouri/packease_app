@@ -39,7 +39,8 @@
                     <i class="fas fa-gift me-3"></i>PACK | EASE
                 </h6>
                 <p>
-                Surely Packed <br> Simply delivered
+                CUSTOMIZED PACKAGING<br>
+                MEMORABLE IMPRESSIONS 
                 </p>
                 </div>
                 <!-- Grid column -->

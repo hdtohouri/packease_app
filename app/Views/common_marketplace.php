@@ -13,6 +13,9 @@
         <!-- Custom slider with swiperJS-->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
+    <!-- Zoomooz.js CSS -->
+	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/zoomooz/dist/zoomooz.min.css">
+
     <script src="https://kit.fontawesome.com/267a08c3f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="icon"  href="<?php echo base_url('favicon.ico'); ?>">
@@ -126,8 +129,8 @@
                         Whether you're looking for skincare packaging to achieve a clear and radiant complexion or makeup packaging to enhance your product beauty, PackEase has got you covered.
                     </p>
                     <button class="btn btn-primary rounded-3 custom-btn" type="button">
-                        <a href="<?php echo base_url('common/marketplace'); ?>" class="nav-link">
-                              <i class="fas fa-download"></i>  Download Catalogue</i>
+                        <a href="<?php echo base_url('common/marketplace/pdf'); ?>" class="nav-link">
+                              <i class="fas fa-download"></i>  Download catalog</i>
                         </a>
                     </button>
                 </div>
@@ -156,7 +159,7 @@
 					<div class="col-md-4">
 						<div class="card mb-3">
 							<div class="card-header bg-transparent text-center">
-								<img src="<?= $product['image'] ?>" alt="Product Image" class="img-fluid">
+                <a href="<?= $product['image'] ?>" data-action="zoom" class="zoom"><img src="<?= $product['image'] ?>" alt="product['name'] ?>" class="img-fluid"></a>
 								<div class="offer"><?= $product['price'] ?>% OFF</div>
 							</div>
 							<div class="card-body">
@@ -179,6 +182,16 @@
 
     <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/zoomooz/dist/zoomooz.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.zoom').zoomooz({
+				duration: 300,
+				scale: 1.2
+			});
+		});
+	</script>
 
 <!-- Initialize Swiper -->
 <script>
