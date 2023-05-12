@@ -30,7 +30,7 @@
                             <a href="<?php echo base_url('common/customizations'); ?>" class="nav-link">Customizations</a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?php echo base_url('#contact'); ?>" class="nav-link">Eco Pack</a>
+                            <a href="<?php echo base_url('common/ecopack'); ?>" class="nav-link">EcoPack</a>
                         </li>
                     </ul>
                 </div>

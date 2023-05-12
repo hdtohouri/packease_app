@@ -30,23 +30,7 @@
             </div>  
     </section>
     
-    <section id="cover" class="container">
-        <div class="row g-2 justify-content-around">
-            <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
-                <div class="p-3 home">
-                    <img src="<?php echo base_url('img/costumization.webp'); ?>"  alt="hero section" class="mx-auto d-block w-100 img-fluid">
-                </div>
-            </div>
-            <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
-                <div class="p-3">
-                    <p class="fs-18">"With our personalized cosmetic packaging service, you have the flexibility to choose from a wide range of 
-                        customization options to create an packaging design that stands out in the market. Whether you want to print your logo on your packaging, design a full custom packaging, or explore special finishing options, we can help you achieve your goals. We use the latest printing technologies to ensure that the colors are vibrant and the finish is of the highest quality, enhancing the perception of quality and professionalism of your product."
-                    </p>
-                </div>
-            </div>  
-        </div>
-    </section>
-    <!--Section: Contact v.2-->
+    
     <section class="col-mb-4">
 
     <!--Section heading-->
@@ -100,6 +84,8 @@
     </section>
     <br>
     <!--Section: Contact v.2-->
+    
+    
     <?php echo view('template/footer.php');?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
