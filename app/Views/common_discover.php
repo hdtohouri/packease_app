@@ -53,6 +53,7 @@
 <body>
     
     <?php echo view('template/header.php');?>
+    
 
     <div id="carouselExampleInterval" class="carousel slide bg-dark" data-bs-ride="carousel">
         <div class="carousel-inner">
@@ -60,11 +61,10 @@
             <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-            <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
+            <img src="<?php echo base_url('img/p-removebg-preview.png'); ?>" class="d-block w-25 mx-auto" alt="...">
             </div>
-            <div class="carousel-item">
-            <img src="<?php echo base_url('img/pic.png'); ?>" class="d-block w-25 mx-auto" alt="...">
-            </div>
+            
+            
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -76,43 +76,7 @@
         </button>
     </div>
    
-    <!--Section: Contact v.2-->
-    <section class="col-mb-4">
-
-    <!--Section heading-->
-        <h2 class="h1-responsive font-weight-bold text-center my-4" id="contact">Contact us</h2>
-        <!--Section description-->
-        <p class="text-center w-responsive mx-auto mb-5">Do you have any questions? Please do not hesitate to contact us directly.<br>  Our team will come back to you within
-            a matter of hours to help you.</p>
-
-            <?php
-                if( isset($validation) )
-                    echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
-
-                if( isset($special_message) )
-                    echo $special_message;
-            ?>
-
-        <form class="user" method="post" action="<?php echo base_url('common/login/contactus'); ?>">
-            <div class="mb-4 col-md-6 col-center m-auto">
-                <label for="name" class="form-label">Your Name :</label>
-                <input type="text" class="form-control" id="name" placeholder="name">
-            </div>
-            <div class="mb-4 col-md-6 col-center m-auto">
-                <label for="email" class="form-label">Email address :</label>
-                <input type="email" class="form-control" id="email" placeholder="email">
-            </div>
-            <div class="mb-4 col-md-6 col-center m-auto">
-                <label for="message" class="form-label">Your message :</label>
-                <textarea class="form-control" id="message" rows="3"></textarea>
-            </div>
-             <br><br>
-            <div class="col-lg-12 text-center"> 
-                <input type="submit" class="btn btn-primary btn-user btn-block " value="Envoyer" />
-            </div>
-        </form>
-    </section>
-    <!--Section: Contact v.2-->
+    
     <section class="bg-white text-light p5 text-sm-start">
         <div class="container">
             <div class="d-sm-flex">
@@ -123,15 +87,79 @@
         </div>
         
     </section>
-    <div class="container col-md-8" id="reviews">
+    <div class="container col-md-5" id="reviews">
        <div class="row">
             <div class="col-md-12 col-center">
                 <h2>OUR TEAM</h2>
-                
+                <div id="carouselExampleInterval" class="carousel carousel-white slide" data-bs-ride="carousel">
+                    <div class="carousel-inner"> 
+                        <div class="carousel-item active" data-bs-interval="5000">
+                            <img class="avatar avatar-128 rounded-circle"
+                                src="<?php echo base_url('img/amira.jpeg')?>">
+                            <div class="carousel-caption text-secondary d-none d-md-block">
+                                <p class="overview"><b>Amira Markad</b>, project leader</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="avatar avatar-128 rounded-circle"
+                                src="<?php echo base_url('img/soukaina.jpeg')?>">
+                            <div class="carousel-caption text-secondary d-none d-md-block">
+                                <p class="overview"><b>Soukaina Elmrabet</b></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="avatar avatar-128 rounded-circle"
+                                src="<?php echo base_url('img/asma.jpeg')?>">
+                            <div class="carousel-caption text-secondary d-none d-md-block">
+                                <p class="overview"><b>Assma Ibikas</b></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="avatar avatar-128 rounded-circle"
+                                src="<?php echo base_url('img/bouanisse.jpeg')?>">
+                            <div class="carousel-caption text-secondary d-none d-md-block">
+                                <p class="overview"><b>Meryem Bouanisse</b></p>
+                            </div>
+                        </div>
+                        <div class="carousel-item" data-bs-interval="2000">
+                            <img class="avatar avatar-128 rounded-circle"
+                                src="<?php echo base_url('img/henoc.jpeg')?>">
+                            <div class="carousel-caption text-secondary d-none d-md-block">
+                                <p class="overview"><b>Tohouri Henoc</b></p>
+                            </div>
+                        </div>
+                        
+                    </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                            <span class="visually-hidden carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                            <span class="visually-hidden carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                </div>
             </div>   
        </div>
     </div>
-    
+    <section id="cover" class="container">
+        <div class="row g-2 justify-content-around">
+            <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
+                <div class="p-3">
+                    <h1></h1>
+                    <p>
+                        Our mission is to provide
+                        personalized packaging of high quality
+                        quality packaging at competitive prices. We
+                        work hard to ensure that every customer
+                        every customer receives personalized
+                        personalized service and a product that
+                        their expectations.
+                    </p>
+                </div>
+            </div> 
+        </div>
+    </section>
     <div class="col-md-12 col-center">
         <h2>OUR Location</h2>            
     </div>   
