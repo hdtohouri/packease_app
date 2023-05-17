@@ -2,8 +2,6 @@
 
 :root{
     --yellow:#f9d806;
-    --soukaina:#8D7B68;
-    --amira:#F1DEC9;
     --light-yellow:#ffee80;
     --black:#130f40;
     --light-color:#666;
@@ -36,12 +34,12 @@ div{
 
 .header .logo{
     font-size: 2rem;
-    color:var( --soukaina);
+    color:var( --yelow);
     font-weight: bold;
 }
 
 .header .logo span{
-    color:var( --soukaina);
+    color:var( --yellow);
 }
 
 .header .navbar-nav a{
@@ -60,7 +58,7 @@ div{
     margin-bottom: 1rem;
     font-size: 10.5vh;
     font-weight: 900;
-    -webkit-text-stroke: .3vh var( --soukaina);
+    -webkit-text-stroke: .3vh var( --yellow);
     color: black;
 }
 
