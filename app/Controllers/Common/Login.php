@@ -226,7 +226,7 @@ class Login extends BaseController
             $message .= '<p>Une demande de connexion par magic link a été demandé pour votre compte.</p>';
             $message .= '<p>Le code pour vous connecter à votre compte est <b>'.$code.'</b></p>'; 
             $message .= '<p>Cliquez sur le bouton pour terminer la procédure.</p>'; 
-            $message .= '<a href= "'.base_url().'/common/login/reset_password/">Se Connecter</a>';
+            $message .= '<a href= "'.base_url().'/common/login/reset_password/'.$token.'">Se Connecter</a>';
             $message .= "<p>Contactez le service technique de Packease, si vous n'êtes pas à l'origine de cette demande.,</p>";
             $message .= '</body></html>';
             $email->setMessage($message);
@@ -279,7 +279,15 @@ class Login extends BaseController
         $user_model = new User();
         $token = $this->request->getPost('token');
         $code = $this->request->getPost('code');
-                    
+        echo $code;
+        $verify= $user_model->verifyCode($code);
+        print_r( $verify);
+        /*if($verify){
+            echo "le code existe";
+        }
+        else{
+            echo "le code n'existe pas";
+        }*/
     //$this->display_view('common_reset_password');
     }
 
