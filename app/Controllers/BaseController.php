@@ -63,8 +63,8 @@ abstract class BaseController extends Controller
 
         // E.g.: $this->session = \Config\Services::session();
         $this->session = \Config\Services::session();
-        //$this->view_data['agent_id']   = $this->session->get('id_agent');
-        //$this->view_data['agent_name'] = $this->session->get('nom_complet');
+        $this->view_data['agent_id']   = $this->session->get('id_agent');
+        $this->view_data['agent_name'] = $this->session->get('nom_complet');
         //$this->view_data['profil_data'] = $this->session->get('permissions');
     }
 

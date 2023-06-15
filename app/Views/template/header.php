@@ -57,7 +57,7 @@
                 <?php if(session('logged_in')): ?>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo session('usr_name'); ?>
+                                <i class="fa fa-user-circle" aria-hidden="true"></i> <?php echo session('user_name'); ?>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?php echo base_url('common/userparameter'); ?>">Parameters</a></li>

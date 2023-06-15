@@ -29,17 +29,15 @@ class User extends Model
     {
         $builder = $this->builder();
         $builder = $this->db->table('utilisateurs_internes');
-        $builder->select('usr_secret, full_name');
+        $builder->select('usr_secret, full_name,email_address,numero, adresse,id_usr, usr_name');
         $builder->where('usr_name', $user_name);
+        $builder->where('usr_secret', strtoupper(sha1($password)));
         $result = $builder->get();
-        $row = $result->getRowArray();
+        $user_details = $result->getRowArray();
         if(count($result->getResultArray())== 1)
         {
-            return  $row['usr_secret']; 
-        }
-        else
-        {
-            return false;
+             
+            return  ['user_details' => $user_details]; 
         }
     }
 
@@ -82,9 +80,7 @@ class User extends Model
         $builder->where('id_usr', $id);
         $now = new Time('now');
         $formattedDate = $now->format('Y-m-d H:i:s');
-        $builder->update(['token'=> $token]);
-        $builder->update(['code'=> $code]);
-        $builder->update(['updated_at'=> $formattedDate ]);
+        $builder->update(['token'=> $token,'code'=> $code,'updated_at'=> $formattedDate ]);
         if($this->db->affectedRows()==1)
         {
             return true;
@@ -150,20 +146,20 @@ class User extends Model
    }
 
    public function verifyCode($code){
-    $builder = $this->db->table('utilisateurs_internes');
-    $builder->select('code');
-    $builder->where('code', $code);
-    $result = $builder -> get();
-    $row = $result->getRowArray();
-    if(count($result->getResultArray())== 1)
-    {
-        return $row['code']; 
+        $builder = $this->db->table('utilisateurs_internes');
+        $builder->select('code');
+        $builder->where('code', $code);
+        $result = $builder -> get();
+        $row = $result->getRowArray();
+        if(count($result->getResultArray())== 1)
+        {
+            return $row['code']; 
+        }
+        else
+        {
+            return false;
+        }
     }
-    else
-    {
-        return false;
-    }
-}
 
 
 }

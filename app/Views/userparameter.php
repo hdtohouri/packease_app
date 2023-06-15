@@ -34,14 +34,14 @@
             </div>
             </div>
 
-            <div class="row">
+            <div class="row ">
             <div class="col-lg-4">
                 <div class="card mb-4">
                 <div class="card-body text-center">
-                    <img src="<?php echo base_url('img/profil.webp')?>" alt="avatar"
-                    class="rounded-circle img-fluid" style="width: 150px;">
-                    <h5 class="my-3">Tohouri Henoc</h5>
-                    <p class="text-muted mb-4">Agadir, Tilila</p>
+                    <img class="avatar avatar-128 rounded-circle p-1"
+                    src="<?php echo base_url('img/user.webp')?>" alt="avatar">
+                    <h5 class="my-3"><?php echo session('nom_complet'); ?></h5>
+                    <p class="text-muted mb-4"><?php echo session('adresse'); ?></p>
                     <div class="d-flex justify-content-center mb-2">
                     <button type="button" class="btn btn-primary ms-1">Message</button>
                     </div>
@@ -52,23 +52,23 @@
                     <ul class="list-group list-group-flush rounded-3">
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fas fa-globe fa-lg text-warning"></i>
-                        <p class="mb-0">http://www.packease.com</p>
+                        <p class="mb-0 text-lowercase">http://www.packease.com</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-github fa-lg" style="color: #333333;"></i>
-                        <p class="mb-0">packease</p>
+                        <p class="mb-0 text-lowercase">packease</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-twitter fa-lg" style="color: #55acee;"></i>
-                        <p class="mb-0">@packease</p>
+                        <p class="mb-0 text-lowercase">@packease</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-instagram fa-lg" style="color: #ac2bac;"></i>
-                        <p class="mb-0">packease</p>
+                        <p class="mb-0 text-lowercase">packease</p>
                     </li>
                     <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                         <i class="fab fa-facebook-f fa-lg" style="color: #3b5998;"></i>
-                        <p class="mb-0">packease</p>
+                        <p class="mb-0 text-lowercase">packease</p>
                     </li>
                     </ul>
                 </div>
@@ -82,7 +82,7 @@
                         <p class="mb-0">Full Name</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">Tohouri Henoc</p>
+                        <p class="text-muted mb-0"><?php echo session('nom_complet'); ?></p>
                     </div>
                     </div>
                     <hr>
@@ -91,7 +91,7 @@
                         <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">henocdeisiretohouri@gmail.com</p>
+                        <p class="text-muted mb-0 text-lowercase"><?php echo session('email'); ?></p>
                     </div>
                     </div>
                     <hr>
@@ -100,7 +100,7 @@
                         <p class="mb-0">Phone</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">(212) 0658-749-622</p>
+                        <p class="text-muted mb-0"><?php echo session('numero'); ?></p>
                     </div>
                     </div>
                     <hr>
@@ -109,7 +109,7 @@
                         <p class="mb-0">Mobile</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">(212) 0658-749-622</p>
+                        <p class="text-muted mb-0"><?php echo session('numero'); ?></p>
                     </div>
                     </div>
                     <hr>
@@ -118,11 +118,51 @@
                         <p class="mb-0">Address</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0">Agadir, Tilila</p>
+                        <p class="text-muted mb-0"><?php echo session('adresse'); ?></p>
                     </div>
                     </div>
                 </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-center mb-2">
+                            <h5 class="mb-0">Edit Your informations</h5>
+                        </div>
+                        <div>	
+                        <?php
+                            if( isset($validation) )
+                                echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
+
+                                if( isset($special_message) )
+                                echo $special_message;
+                                ?>
+                        </div>				
+                                    
+                        <form class="user" method="post" action="<?= base_url('common/dashboard/add_product') ?>" enctype="multipart/form-data" autocomplete="off">
+                             
+                            <div class="mb-4">
+                                <label for="image" class="form-label">Profil Picture</label>
+                                <input class="form-control" type="file" name="file">
+                            </div>
+                            <div class="mb-4">
+                                <input type="tel"  class="form-control" name="number" placeholder="Numero" >
+                            </div>
+                            <div class="mb-4">
+                                <input type="text"  class="form-control" name="fullname" placeholder="Nom Complet" >
+                            </div>
+                            <div class="mb-4 form-group">
+                                <input type="email" class="form-control form-control-user" name="email" placeholder="Email Adresse" autofocus />
+                            </div>
+                            <div class="mb-4 form-group">
+                                <input type="text" class="form-control form-control-user" name="adress" placeholder="Entrer votre Adresse" autofocus />
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Save" />
+                        </form>
+
+                    </div>
                 </div>
+            </div>
                 
                
     </section>

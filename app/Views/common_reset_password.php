@@ -48,7 +48,7 @@
                                     <?php if(isset($error_message)) : ?>
                                     <div class="alert alert-danger"><?= $error_message ?></div>
                                     <?php else: ?>
-                                    <form class="user" method="post" action="<?php echo base_url('common/login/reset_password'); ?>" autocomplete="off">
+                                    <form class="user" method="post" action="<?php echo base_url('common/login/reset_password/'.$token); ?>" autocomplete="off">
                                         <div class="form-group">
                                         <input type="text" class="mb-4 form-control form-control-user" id="code" name="code" placeholder="Saisir le code reçu par mail" autofocus />
                                         </div>

@@ -32,24 +32,34 @@ class Login extends BaseController
 	    $form_user_name = $this->request->getPost('UserName',FILTER_SANITIZE_STRING);
 	    $form_pwd = $this->request->getPost('UserPwd');
 	    $login_manager = new User();
-
+        echo $form_user_name ;
+        echo $form_pwd ;
         /*Admin panel : admin 
          password: 1111*/
+         /*user panel : henoc 
+         password: 22222*/
 
         $user_details = $login_manager->get_permissions($form_user_name, $form_pwd);
-        if (!$form_user_name || !password_verify($form_pwd, $user_details)) 
+        var_dump($user_details);
+        
+        if (is_null($user_details)) 
         {
             $message = "<div class='alert alert-danger' role='alert'>Nom d'utilisateur ou Mot de passe invalide veuillez réessayer</div>";
             echo view('login_screen', array('special_message' => $message));
             return;
             
-        }else{
+        }else{ 
             
             $data = [
-                'usr_name'=>$form_user_name,
-                'usr_secret'=>$form_pwd,
+                'user id' =>  $user_details['user_details']['id_usr'],
+                'user_name' =>  $user_details['user_details']['usr_name'],
+                'nom_complet' =>  $user_details['user_details']['full_name'],
                 'logged_in' => true,
+                'adresse' =>  $user_details['user_details']['adresse'],
+                'email' =>  $user_details['user_details']['email_address'],
+                'numero' =>  $user_details['user_details']['numero']
             ];
+            
 
             $this->session->set($data);
             return redirect()->to(base_url(''));
@@ -70,7 +80,7 @@ class Login extends BaseController
             ],
             'UserName' => [
                 'label'  => "Nom d'utilisateur",
-                'rules'  => 'required|min_length[3]|max_length[10]|is_unique[utilisateurs_internes.usr_name]'
+                'rules'  => 'required|min_length[3]|max_length[10]'
             ],
             'UserPwd' => [
                 'label'  => 'Mot de passe',
@@ -98,7 +108,8 @@ class Login extends BaseController
             $form_name = $this->request->getPost('Name',FILTER_SANITIZE_STRING);
             $form_email= $this->request->getPost('email',FILTER_SANITIZE_EMAIL);
             $form_user_name = $this->request->getPost('UserName',FILTER_SANITIZE_STRING);
-            $form_pwd = password_hash($this->request->getPost('UserPwd'), PASSWORD_DEFAULT);
+            $form_pwd = strtoupper(sha1($this->request->getPost('UserPwd')));
+            
     
 
         $data = [
@@ -186,9 +197,9 @@ class Login extends BaseController
 
 
     public function forgotten_password()
-    {    
-        $validation_rules = array(
-            'email' => ['label'  => "adresse email", 'rules'  => 'required|valid_email'],
+    {   
+         $validation_rules = array(
+        'email' => ['label'  => "Saisir adresse email", 'rules'  => 'required|valid_email'],
         );
         if( $this->validate($validation_rules) === false )
         {
@@ -205,9 +216,8 @@ class Login extends BaseController
                     die('something is wrong here');
             }
             return;
-            
         }
-    
+        
         $user_email = $this->request->getPost('email',FILTER_SANITIZE_EMAIL);
         $user_model = new User();
         $userID = $user_model->verifyEmail($user_email);
@@ -215,7 +225,9 @@ class Login extends BaseController
         {   
             $email = \Config\Services::email();
 
-            $email->setFrom('info.packease@gmail.com', "PACKEASE GROUP'S");
+            $fromEmail = getenv('EMAIL_FROM');
+            $fromName = getenv('EMAIL_FROM_NAME');
+            $email->setFrom($fromEmail , $fromName);
             $email->setTo($user_email);    
             $code = bin2hex(random_bytes(3));   
             $token = bin2hex(random_bytes(30));
@@ -250,45 +262,67 @@ class Login extends BaseController
         redirect()->to(current_url());
     }
 
-    public function reset_password()
+    public function reset_password($token = null)
     {  
         $validation_rules = array(
             'code' => [
             'label'  => 'Saisir le code reçu par mail',
-            'rules'  => 'required|min_length[6]'
+            'rules'  => 'required|exact_length[6]'
              ],
         );
-
-        if( $this->validate($validation_rules) === false )
+        /* if( $this->validate($validation_rules) === false )
         {
             $method = $this->request->getMethod();
             switch( $method ){
                 case 'post':
-                    echo view('common_reset_password', array('validation' => $this->validator));
+                    $this->view_data['validation'] = $this->validator;
                     break;
                 case 'get':
-                    $message = $this->session->getFlashdata('special_message');
-                    echo view('common_reset_password', array('special_message' => $message));
+                    $this->view_data['special_message'] = $this->session->getFlashdata('special_message');
                     break;
                 default:
                     die('something is wrong here');
             }
-            return;  
-        }
 
+            return view('common_reset_password', array('token' => $token));
+        
+        } */
+        if ($this->validate($validation_rules) === false) {
+            $method = $this->request->getMethod();
+            
+            switch ($method) {
+                case 'post':
+                    echo view('common_reset_password', [
+                        'token' => $token,
+                        'validation' => $this->validator
+                    ]);
+                    break;
+                case 'get':
+                    $message = $this->session->getFlashdata('special_message');
+                    echo view('common_reset_password', [
+                        'token' => $token,
+                        'special_message' => $message
+                    ]);
+                    break;
+                default:
+                    die('something is wrong here');
+            }
+            
+            return;
+        }
+       
         $user_model = new User();
-        $token = $this->request->getPost('token');
         $code = $this->request->getPost('code');
-        echo $code;
+        //echo $code;
         $verify= $user_model->verifyCode($code);
-        print_r( $verify);
-        /*if($verify){
+        //print_r( $verify);
+        if($verify){
             echo "le code existe";
         }
         else{
             echo "le code n'existe pas";
-        }*/
-    //$this->display_view('common_reset_password');
+        }
+    return view('common_reset_password');
     }
 
 }

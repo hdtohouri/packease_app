@@ -52,10 +52,10 @@
                     Products
                 </h6>
                 <p>
-                    <a href="<?php echo base_url('#reviews'); ?>" class="text-reset">Reviews</a>
+                    <a href="<?php echo base_url('#reviews'); ?>" class="text-reset text-decoration-none">Reviews</a>
                 </p>
                 <p>
-                    <a href= "<?php echo base_url('#contact'); ?>" class="text-reset">Contact</a>
+                    <a href= "<?php echo base_url('#contact'); ?>" class="text-reset text-decoration-none">Contact</a>
                 </p>
                 </div>
                 <!-- Grid column -->
@@ -67,13 +67,13 @@
                     Useful links
                 </h6>
                 <p>
-                    <a href="<?php echo base_url('#'); ?>" class="text-reset">Home</a>
+                    <a href="<?php echo base_url('#'); ?>" class="text-reset text-decoration-none">Home</a>
                 </p>
                 <p>
-                    <a href="<?php echo base_url('common/marketplace');?>" class="text-reset">Marketeplace</a>
+                    <a href="<?php echo base_url('common/marketplace');?>" class="text-reset text-decoration-none">Marketeplace</a>
                 </p>
                 <p>
-                    <a href="<?php echo base_url('common/discover');?>" class="text-reset">Discover</a>
+                    <a href="<?php echo base_url('common/discover');?>" class="text-reset text-decoration-none">Discover</a>
                 </p>
                 </div>
                 <!-- Grid column -->
@@ -83,7 +83,7 @@
                 <!-- Links -->
                 <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
                 <p><i class="fas fa-home me-3"></i> Morroco, AGADIR, 80000</p>
-                <p>
+                <p class="text-lowercase">
                     <i class="fas fa-envelope me-3"></i>
                     info.packease@gmail.com
                 </p>
