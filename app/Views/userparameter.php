@@ -38,8 +38,12 @@
             <div class="col-lg-4">
                 <div class="card mb-4">
                 <div class="card-body text-center">
+                <?php if(session('photo_profil')): ?>
+                    <?php echo session('photo_profil'); ?>
+                <?php else: ?>
                     <img class="avatar avatar-128 rounded-circle p-1"
                     src="<?php echo base_url('img/user.webp')?>" alt="avatar">
+                <?php endif; ?> 
                     <h5 class="my-3"><?php echo session('nom_complet'); ?></h5>
                     <p class="text-muted mb-4"><?php echo session('adresse'); ?></p>
                     <div class="d-flex justify-content-center mb-2">
@@ -128,18 +132,15 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-center mb-2">
                             <h5 class="mb-0">Edit Your informations</h5>
-                        </div>
-                        <div>	
-                        <?php
-                            if( isset($validation) )
+                            <?php
+                                if( isset($validation) )
                                 echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
 
                                 if( isset($special_message) )
                                 echo $special_message;
-                                ?>
-                        </div>				
-                                    
-                        <form class="user" method="post" action="<?= base_url('common/dashboard/add_product') ?>" enctype="multipart/form-data" autocomplete="off">
+                            ?>
+                        </div>
+                		 <form class="user" method="post" action="<?= base_url('common/userparameter') ?>" enctype="multipart/form-data" autocomplete="off">
                              
                             <div class="mb-4">
                                 <label for="image" class="form-label">Profil Picture</label>
@@ -175,6 +176,3 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-

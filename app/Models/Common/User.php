@@ -29,7 +29,7 @@ class User extends Model
     {
         $builder = $this->builder();
         $builder = $this->db->table('utilisateurs_internes');
-        $builder->select('usr_secret, full_name,email_address,numero, adresse,id_usr, usr_name');
+        $builder->select('usr_secret, full_name,email_address,numero, adresse,id_usr, usr_name,pic_profil');
         $builder->where('usr_name', $user_name);
         $builder->where('usr_secret', strtoupper(sha1($password)));
         $result = $builder->get();

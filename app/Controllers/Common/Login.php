@@ -57,7 +57,8 @@ class Login extends BaseController
                 'logged_in' => true,
                 'adresse' =>  $user_details['user_details']['adresse'],
                 'email' =>  $user_details['user_details']['email_address'],
-                'numero' =>  $user_details['user_details']['numero']
+                'numero' =>  $user_details['user_details']['numero'],
+                'photo_profil' =>  $user_details['user_details']['pic_profil']
             ];
             
 
