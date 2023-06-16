@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-avatar@latest/dist/avatar.min.css" rel="stylesheet">
     
         <!-- Custom icons from fontawesome-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
     
         <!-- Custom slider with swiperJS-->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -132,34 +132,13 @@
                     <div class="card-body">
                         <div class="d-flex justify-content-center mb-2">
                             <h5 class="mb-0">Edit Your informations</h5>
-                            <?php
-                                if( isset($validation) )
-                                echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
-
-                                if( isset($special_message) )
-                                echo $special_message;
-                            ?>
                         </div>
-                		 <form class="user" method="post" action="<?= base_url('common/userparameter') ?>" enctype="multipart/form-data" autocomplete="off">
-                             
-                            <div class="mb-4">
-                                <label for="image" class="form-label">Profil Picture</label>
-                                <input class="form-control" type="file" name="file">
-                            </div>
-                            <div class="mb-4">
-                                <input type="tel"  class="form-control" name="number" placeholder="Numero"/>
-                            </div>
-                            <div class="mb-4">
-                                <input type="text"  class="form-control" name="fullname" placeholder="Nom Complet"/>
-                            </div>
-                            <div class="mb-4 form-group">
-                                <input type="email" class="form-control form-control-user" name="email" placeholder="Email Adresse"/>
-                            </div>
-                            <div class="mb-4 form-group">
-                                <input type="text" class="form-control form-control-user" name="adress" placeholder="Entrer votre Adresse" />
-                            </div>
-                            <input type="submit" class="btn btn-primary btn-user btn-block" value="Save" />
-                        </form>
+                        <li class="nav-item">
+                        <a href="<?php echo base_url("common/userparameter/update_data")?>" class="nav-link text-dark">
+                                    <i class="fas fa-plus-circle mr-3 text-primary fa-fw"></i>
+                                    Click Here to Edit !
+                                </a>
+                        </li>
 
                     </div>
                 </div>
@@ -173,6 +152,6 @@
     <?php endif; ?> 
     <?php echo view('template/footer.php');?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>

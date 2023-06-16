@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-avatar@latest/dist/avatar.min.css" rel="stylesheet">
     
         <!-- Custom icons from fontawesome-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.min.css'); ?>">
     
         <!-- Custom slider with swiperJS-->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -128,11 +128,9 @@
                     <p>Our catalog is filled with a wide range of cosmetic products packaging that are specially formulated to meet your unique needs. 
                         Whether you're looking for skincare packaging to achieve a clear and radiant complexion or makeup packaging to enhance your product beauty, PackEase has got you covered.
                     </p>
-                    <button class="btn btn-primary rounded-3 custom-btn" type="button">
-                        <a href="<?php echo base_url('common/marketplace/pdf'); ?>" class="nav-link">
-                              <i class="fas fa-download"></i>  Download catalog</i>
-                        </a>
-                    </button>
+                    <a href="<?php echo base_url('common/marketplace/pdf'); ?>" class="btn btn-primary rounded-3 custom-btn" role="button">
+                        <i class="fas fa-download"></i> Download catalog
+                    </a>
                 </div>
             </div>  
         </div>
@@ -218,7 +216,7 @@
 </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>
 

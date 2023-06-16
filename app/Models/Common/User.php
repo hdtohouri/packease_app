@@ -161,5 +161,20 @@ class User extends Model
         }
     }
 
+    public function update_data($id,$data)
+    {
+        $builder = $this->builder();
+        $builder = $this->db->table('utilisateurs_internes');
+        $builder = $this->where('id_usr',$id);
+        $builder->update(['pic_profil'=> $photo_profil,'numero'=> $user_numero,'fullname'=> $nom_complet,'email_address'=> $email, 'adresse'=> $adresse]);
+        if($this->db->affectedRows()==1)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 }

@@ -87,8 +87,8 @@
                     <i class="fas fa-envelope me-3"></i>
                     info.packease@gmail.com
                 </p>
-                <p><i class="fas fa-phone me-3"></i> + 212 631-460662</p>
-                <p><i class="fas fa-phone me-3"></i> + 212 650-955917</p>
+                <p><i class="fas fa-phone me-3"></i> + 212 xxx-xxxxxx</p>
+                <p><i class="fas fa-phone me-3"></i> + 212 xxx-xxxxxx</p>
                 </div>
                 <!-- Grid column -->
             </div>

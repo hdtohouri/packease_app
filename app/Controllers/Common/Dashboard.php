@@ -77,7 +77,6 @@ class Dashboard extends BaseController
 			'status'=>$prod_status,
             //'id_category'=>$prod_category,
         ];	
-        print_r($data);
 	   
 	    $user_details = $form_manager->insert_in_db($data);
  

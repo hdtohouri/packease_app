@@ -8,7 +8,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-avatar@latest/dist/avatar.min.css" rel="stylesheet">
     
         <!-- Custom icons from fontawesome-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+        <link rel="stylesheet" href="<?php echo base_url('bootstrap/css/bootstrap.css'); ?>">
     
         <!-- Custom slider with swiperJS-->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
@@ -44,11 +44,9 @@
                     <p>Packease offers customized packaging for cosmetic products, allowing companies to create a unique and brand image.
                         By customizing their packaging, companies can communicate their message and visual aesthetic.
                     </p>
-                    <button class="btn btn-primary rounded-3 custom-btn" type="button">
-                        <a href="<?php echo base_url('common/marketplace'); ?>" class="nav-link">
-                                <i class="fas fa-shopping-cart">  Explore Now</i>
-                        </a>
-                    </button>
+                    <a href="<?php echo base_url('common/marketplace'); ?>" class="btn btn-primary rounded-3 custom-btn" role="button">
+                        <i class="fas fa-shopping-cart"></i> Explore Now
+                    </a>
                 </div>
             </div>  
         </div>
@@ -93,11 +91,9 @@
                     <p>We use high-quality materials for our packaging, which <br>ensures that cosmetic products are protected during shipping. 
                         Our packaging are also designed to be aesthetically appealing and functional, which can help attract consumers' attention and enhance their shopping experience.
                     </p>
-                    <button class="btn btn-primary rounded-3 custom-btn" type="button">
-                        <a href="<?php echo base_url('common/marketplace'); ?>" class="nav-link">
-                                <i class="fas fa-shopping-cart">  Explore Now</i>
-                        </a>
-                    </button>
+                    <a href="<?php echo base_url('common/marketplace'); ?>" class="btn btn-primary rounded-3 custom-btn" role="button">
+                        <i class="fas fa-shopping-cart"></i> Explore Now
+                    </a>
                 </div>
             </div>
             <div class="col-md-6 d-flex justify-content-center align-items-center order-lg-2">
@@ -107,7 +103,7 @@
             </div>  
         </div>
     </section>
-    <div id="carouselExampleDark" class="carousel carousel-light slide bg-black" data-bs-ride="carousel">
+    <div id="carouselExampleDark" class="carousel carousel-light slide bg-dark" data-bs-ride="carousel">
         
         <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="5000">
@@ -340,7 +336,7 @@
 
     </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>
 

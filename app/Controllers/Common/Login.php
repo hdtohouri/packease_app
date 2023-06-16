@@ -40,7 +40,6 @@ class Login extends BaseController
          password: 22222*/
 
         $user_details = $login_manager->get_permissions($form_user_name, $form_pwd);
-        var_dump($user_details);
         
         if (is_null($user_details)) 
         {

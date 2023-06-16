@@ -1,7 +1,0 @@
-input[type=text], input[type=email],input[type=password]{
-    text-transform: lowercase;
-}
-
-a{
-    text-decoration: none;
-}

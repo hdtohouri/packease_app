@@ -32,11 +32,11 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"> <img src="<?php echo base_url('img/5.png'); ?>" alt=""></div>
-                            <div class="col-lg-6">
+                            
+                            <div class="col-lg-7">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">ADD NEW PRODUCT</h1>
+                                        <h5 class="h4 text-gray-900 mb-4">Edit Your informations</h5>
                                         <?php
                                         if( isset($validation) )
                                             echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
@@ -46,34 +46,30 @@
                                         ?>
                                     </div>					
                                     
-                                    <form class="user" method="post" action="<?= base_url('common/dashboard/add_product') ?>" enctype="multipart/form-data" autocomplete="off">
-                                        <div class="mb-4 form-group">
-                                            <label for="category"></label>
-                                            <select name="category" id="category">
-                                                <option value="">--Please choose a category--</option>
-                                                
-                                            </select>
-                                        </div>   
-                                        <div class="mb-4 form-group">
-                                            <input type="number" class="form-control form-control-user" id="price" name="price" placeholder="Product Price" autofocus />
-                                        </div>
-                                        <div class="mb-3">
-                                            <label for="image" class="form-label">Product image</label>
+                                    <form class="user" method="post" action="<?= base_url('common/userparameter/update_data') ?>" enctype="multipart/form-data" autocomplete="off">
+                                        
+                                        <div class="mb-4">
+                                            <label for="image" class="form-label">Profil Picture</label>
                                             <input class="form-control" type="file" name="file">
                                         </div>
                                         <div class="mb-4">
-                                            <label for="exampleFormControlTextarea1" class="form-label"></label>
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="description" placeholder="Product Description" rows="3"></textarea>
+                                            <input type="tel"  class="form-control" name="number" placeholder="Numero"/>
+                                        </div>
+                                        <div class="mb-4">
+                                            <input type="text"  class="form-control" name="fullname" placeholder="Nom Complet"/>
                                         </div>
                                         <div class="mb-4 form-group">
-                                            <input type="number" class="form-control form-control-user" id="status" name="status" placeholder="Product Status" autofocus />
+                                            <input type="email" class="form-control form-control-user" name="email" placeholder="Email Adresse"/>
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="add product" />
+                                        <div class="mb-4 form-group">
+                                            <input type="text" class="form-control form-control-user" name="adress" placeholder="Entrer votre Adresse" />
+                                        </div>
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Save" />
                                     </form>
 
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="<?php echo base_url('common/dashboard'); ?>">
+                                        <a class="small" href="<?php echo base_url('common/userparameter'); ?>">
                                         <i class="fas fa-arrow-left"></i>
                                         Dashboard</a>
                                     </div>
