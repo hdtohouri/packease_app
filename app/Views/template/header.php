@@ -62,7 +62,7 @@
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?php echo base_url('common/userparameter'); ?>">Parameters</a></li>
                                 <li><a class="dropdown-item" href="#">My Orders</a></li>
-                                <li><a class="dropdown-item" href="#">Update Password</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('common/login/update_password'); ?>">Update Password</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('common/logout'); ?>">Deconnexion</a></li>
                             </ul>

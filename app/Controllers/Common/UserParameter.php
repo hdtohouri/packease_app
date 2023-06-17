@@ -22,22 +22,21 @@ class UserParameter extends BaseController
             ],
             'number' => [
                 'label'  => 'Numero',
-                'rules'  => 'min_length[4]|decimal'
+                'rules'  => 'permit_empty|min_length[4]'
 			],
 			'fullname' => [
                 'label'  => 'Nom Complet',
-                'rules'  => 'alpha'
+                'rules'  => 'permit_empty|alpha'
             ],
             'email' => [
                 'label'  => 'Email Adresse',
-                'rules'  => 'valid_emails'
-			],
+                'rules'  => 'permit_empty|valid_emails'
+            ],
             'adress' => [
                 'label'  => 'Entrer votre Adresse',
-                'rules'  => 'min_length[4]|alpha_numeric'
-			],
+                'rules'  => 'permit_empty|alpha_numeric_punct'
+            ],
         );
-        
         if( $this->validate($validation_rules) === false )
         {
             $method = $this->request->getMethod();
@@ -51,85 +50,44 @@ class UserParameter extends BaseController
                 default:
                     die('something is wrong here');
             }
-
             return view('update_user_data');
-        
         }
-        
-	    $userModel = new User();
-        $profil_pic = $this->request->getFile('file');
-        echo $profil_pic ;
-        /*$user_number = $this->request->getPost('number',FILTER_SANITIZE_NUMBER_INT);
+
+        $userModel = new User();
+
+        $profil_pic = $this->request->getFile('file');  
+        $user_number = $this->request->getPost('numero',FILTER_SANITIZE_NUMBER_INT);
         $user_email= $this->request->getPost('email_address',FILTER_SANITIZE_EMAIL);
-        $user_fullname = $this->request->getPost('fullname',FILTER_SANITIZE_STRING);
-        $user_adress = $this->request->getPost('adress',FILTER_SANITIZE_STRING);*/
+        $user_fullname = $this->request->getPost('full_name',FILTER_SANITIZE_STRING);
+        $user_adress = $this->request->getPost('adress',FILTER_SANITIZE_STRING);
 
         $newName = $profil_pic->getRandomName();
         $profil_pic->move('./uploads', $newName);
         $url = base_url().'uploads'.'/'.$newName;
+        $data = [
+            'pic_profil' => $url,
+            'numero' => $user_number,
+            'full_name' => $user_fullname,
+            'email_address' => $user_email,
+            'adresse' => $user_adress
+        ];
 
-        /*if (!empty($profil_pic)) 
-        { 
-            $userModel->update_data($id, ['file' => $profil_pic]);
-            $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
-            echo view('update_user_data', array('special_message' => $message));
-        }
-
-        elseif (!empty($user_number)) 
-        { 
-            $userModel->update_data($id, ['number' => $user_number]);
-            $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
-            echo view('update_user_data', array('special_message' => $message));
-        }
-
-        elseif (!empty($user_email)) 
-        { 
-            $userModel->update_data($id, ['email_address' => $user_email]);
-            $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
-            echo view('update_user_data', array('special_message' => $message));
-        }
-
-        elseif (!empty($user_fullname)) 
-        { 
-            $userModel->update_data($id, ['fullname' => $user_fullname]);
-            $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
-            echo view('update_user_data', array('special_message' => $message));
-        }
-
-        elseif (!empty($user_adress)) 
-        { 
-            $userModel->update_data($id, ['adress' => $user_adress]);
-            $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
-            echo view('update_user_data', array('special_message' => $message));
+        $updated = $userModel->update_data(session('user id'), $data);
        
-        else
-	    {
-	        $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
+        if (is_null($updated)) 
+        { 
+            $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
             echo view('update_user_data', array('special_message' => $message));
             return;
+            
+        }
+
+        else
+	    {
+	        $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
+            echo view('update_user_data', array('special_message' => $message));
         }
         
-
-	    $user_details = $userModel->update(session('user id'),$data);
-        var_dump($user_details); }*/
-
-        
-       
-        
-        //return view('update_user_data');
     }
 }
-/*
-$userModel = new User();
-        $profil_pic = $this->request->getFile('file');
 
-        $newName = $profil_pic->getRandomName();
-        $profil_pic->move('./uploads', $newName);
-        $url = base_url().'uploads'.'/'.$newName;
-        
-        $userModel = new User();
-        if (!empty($profil_pic)) 
-        {
-           
-            $userModel->update_data($id, ['file' => $profil_pic]);
-        }*/

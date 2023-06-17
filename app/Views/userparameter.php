@@ -39,7 +39,8 @@
                 <div class="card mb-4">
                 <div class="card-body text-center">
                 <?php if(session('photo_profil')): ?>
-                    <?php echo session('photo_profil'); ?>
+                    <img class="avatar avatar-128 rounded-circle p-1"
+                    src="<?php echo session('photo_profil'); ?>" alt="avatar">
                 <?php else: ?>
                     <img class="avatar avatar-128 rounded-circle p-1"
                     src="<?php echo base_url('img/user.webp')?>" alt="avatar">

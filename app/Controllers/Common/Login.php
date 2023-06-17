@@ -32,8 +32,6 @@ class Login extends BaseController
 	    $form_user_name = $this->request->getPost('UserName',FILTER_SANITIZE_STRING);
 	    $form_pwd = $this->request->getPost('UserPwd');
 	    $login_manager = new User();
-        echo $form_user_name ;
-        echo $form_pwd ;
         /*Admin panel : admin 
          password: 1111*/
          /*user panel : henoc 
@@ -323,6 +321,58 @@ class Login extends BaseController
             echo "le code n'existe pas";
         }
     return view('common_reset_password');
+    }
+
+    public function update_password()
+    {
+        $validation_rules = array(
+            'password1' => [
+                'label'  => 'Entrer le nouveau password',
+                'rules'  => 'required|min_length[6]'
+			],
+			'password2' => [
+                'label'  => 'Ressaisir le nouveau password',
+                'rules'  => 'required|matches[password1]'
+            ],
+        );
+        
+        if( $this->validate($validation_rules) === false )
+        {
+            $method = $this->request->getMethod();
+            switch( $method ){
+                case 'post':
+                    $this->view_data['validation'] = $this->validator;
+                    break;
+                case 'get':
+                    $this->view_data['special_message'] = $this->session->getFlashdata('special_message');
+                    break;
+                default:
+                    die('something is wrong here');
+            }
+            return view('common_update_password');
+        }
+
+        $userModel = new User();
+         
+        $newpassword = $this->request->getPost('password1',FILTER_SANITIZE_STRING);
+
+        $password_updated = $userModel->update_user_password(session('user id'), $newpassword);
+       
+        if (is_null($password_updated)) 
+        { 
+            $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
+            echo view('common_update_password', array('special_message' => $message));
+            return;
+            
+        }
+
+        else
+	    {
+	        $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
+            echo view('common_update_password', array('special_message' => $message));
+        }
+        
+        //return view('common_update_password');
     }
 
 }

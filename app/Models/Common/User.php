@@ -161,12 +161,44 @@ class User extends Model
         }
     }
 
-    public function update_data($id,$data)
+    public function update_data($id, $data)
     {
-        $builder = $this->builder();
         $builder = $this->db->table('utilisateurs_internes');
-        $builder = $this->where('id_usr',$id);
-        $builder->update(['pic_profil'=> $photo_profil,'numero'=> $user_numero,'fullname'=> $nom_complet,'email_address'=> $email, 'adresse'=> $adresse]);
+        $builder->where('id_usr', $id);
+
+        if (isset($data['pic_profil'])) {
+            $builder->set('pic_profil', $data['pic_profil']);
+        }
+
+        if (isset($data['number'])) {
+            $builder->set('numero', $data['number']);
+        }
+
+        if (isset($data['fullname'])) {
+            $builder->set('full_name', $data['fullname']);
+        }
+
+        if (isset($data['email'])) {
+            $builder->set('email_address', $data['email']);
+        }
+
+        if (isset($data['adress'])) {
+            $builder->set('adresse', $data['adress']);
+        }
+
+        $builder->update();
+
+        if ($this->db->affectedRows() == 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public function update_user_password($id,$password){
+        $builder = $this ->db->table('utilisateurs_internes');
+        $builder->where('id_usr', $id);
+        $builder->update(['usr_secret'=> strtoupper(sha1($password)), 'pwd_modification_flag' => 'N']);
         if($this->db->affectedRows()==1)
         {
             return true;
