@@ -39,7 +39,7 @@
                                         <h5 class="h4 text-gray-900 mb-4">Edit Your informations</h5>
                                         <?php
                                         if( isset($validation) )
-                                            echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
+                                            echo "<div style='color: #ff0000'>".$validation->getErrors()."</div>";
 
                                         if( isset($special_message) )
                                             echo $special_message;

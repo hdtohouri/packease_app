@@ -38,14 +38,14 @@
             <div class="col-lg-4">
                 <div class="card mb-4">
                 <div class="card-body text-center">
-                <?php if(session('photo_profil')): ?>
+                <?php if(session('pic_profil')): ?>
                     <img class="avatar avatar-128 rounded-circle p-1"
-                    src="<?php echo session('photo_profil'); ?>" alt="avatar">
+                    src="<?php echo session('pic_profil'); ?>" alt="avatar">
                 <?php else: ?>
                     <img class="avatar avatar-128 rounded-circle p-1"
                     src="<?php echo base_url('img/user.webp')?>" alt="avatar">
                 <?php endif; ?> 
-                    <h5 class="my-3"><?php echo session('nom_complet'); ?></h5>
+                    <h5 class="my-3"><?php echo session('full_name'); ?></h5>
                     <p class="text-muted mb-4"><?php echo session('adresse'); ?></p>
                     <div class="d-flex justify-content-center mb-2">
                     <button type="button" class="btn btn-primary ms-1">Message</button>
@@ -87,7 +87,7 @@
                         <p class="mb-0">Full Name</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0"><?php echo session('nom_complet'); ?></p>
+                        <p class="text-muted mb-0"><?php echo session('full_name'); ?></p>
                     </div>
                     </div>
                     <hr>
@@ -96,7 +96,7 @@
                         <p class="mb-0">Email</p>
                     </div>
                     <div class="col-sm-9">
-                        <p class="text-muted mb-0 text-lowercase"><?php echo session('email'); ?></p>
+                        <p class="text-muted mb-0 text-lowercase"><?php echo session('email_address'); ?></p>
                     </div>
                     </div>
                     <hr>

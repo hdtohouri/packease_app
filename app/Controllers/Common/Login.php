@@ -48,16 +48,16 @@ class Login extends BaseController
         }else{ 
             
             $data = [
-                'user id' =>  $user_details['user_details']['id_usr'],
+                'user_id' =>  $user_details['user_details']['id_usr'],
                 'user_name' =>  $user_details['user_details']['usr_name'],
-                'nom_complet' =>  $user_details['user_details']['full_name'],
+                'full_name' =>  $user_details['user_details']['full_name'],
                 'logged_in' => true,
                 'adresse' =>  $user_details['user_details']['adresse'],
-                'email' =>  $user_details['user_details']['email_address'],
+                'email_address' =>  $user_details['user_details']['email_address'],
                 'numero' =>  $user_details['user_details']['numero'],
-                'photo_profil' =>  $user_details['user_details']['pic_profil']
+                'pic_profil' =>  $user_details['user_details']['pic_profil']
             ];
-            
+           
 
             $this->session->set($data);
             return redirect()->to(base_url(''));
@@ -328,7 +328,7 @@ class Login extends BaseController
         $validation_rules = array(
             'password1' => [
                 'label'  => 'Entrer le nouveau password',
-                'rules'  => 'required|min_length[6]'
+                'rules'  => 'required|min_length[5]'
 			],
 			'password2' => [
                 'label'  => 'Ressaisir le nouveau password',
@@ -338,6 +338,7 @@ class Login extends BaseController
         
         if( $this->validate($validation_rules) === false )
         {
+            var_dump($this->validator->getErrors());
             $method = $this->request->getMethod();
             switch( $method ){
                 case 'post':
@@ -355,8 +356,7 @@ class Login extends BaseController
         $userModel = new User();
          
         $newpassword = $this->request->getPost('password1',FILTER_SANITIZE_STRING);
-
-        $password_updated = $userModel->update_user_password(session('user id'), $newpassword);
+        $password_updated = $userModel->update_user_password(session('user_id'), $newpassword);
        
         if (is_null($password_updated)) 
         { 
@@ -371,8 +371,6 @@ class Login extends BaseController
 	        $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
             echo view('common_update_password', array('special_message' => $message));
         }
-        
-        //return view('common_update_password');
     }
 
 }

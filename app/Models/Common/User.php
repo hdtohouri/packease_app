@@ -166,26 +166,12 @@ class User extends Model
         $builder = $this->db->table('utilisateurs_internes');
         $builder->where('id_usr', $id);
 
-        if (isset($data['pic_profil'])) {
-            $builder->set('pic_profil', $data['pic_profil']);
+        foreach ($data as $key => $value) {
+            if (!empty($value)) {
+                $builder->set($key, $value);
+            }
         }
-
-        if (isset($data['number'])) {
-            $builder->set('numero', $data['number']);
-        }
-
-        if (isset($data['fullname'])) {
-            $builder->set('full_name', $data['fullname']);
-        }
-
-        if (isset($data['email'])) {
-            $builder->set('email_address', $data['email']);
-        }
-
-        if (isset($data['adress'])) {
-            $builder->set('adresse', $data['adress']);
-        }
-
+        
         $builder->update();
 
         if ($this->db->affectedRows() == 1) {
@@ -198,7 +184,7 @@ class User extends Model
     public function update_user_password($id,$password){
         $builder = $this ->db->table('utilisateurs_internes');
         $builder->where('id_usr', $id);
-        $builder->update(['usr_secret'=> strtoupper(sha1($password)), 'pwd_modification_flag' => 'N']);
+        $builder->update(['usr_secret' => strtoupper(sha1($password)), 'pwd_modification_flag' => 'N']);
         if($this->db->affectedRows()==1)
         {
             return true;
@@ -206,7 +192,6 @@ class User extends Model
         else{
             return false;
         }
-    }
-
+   }
 
 }
