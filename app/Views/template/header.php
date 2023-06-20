@@ -47,13 +47,30 @@
                     <a href="<?php echo base_url('common/panier'); ?>">
                         <i class="fas fa-shopping-cart">  </i>
                     </a>
-                    <span class="position-absolute top-0 start translate-middle badge rounded-pill bg-danger">
+                    <span id="badge" class="position-absolute top-0 start translate-middle badge rounded-pill bg-danger">
                         0
                         <span class="visually-hidden">orders</span>
                     </span>
                 </button>
                 
-               
+                <script>
+                    // Récupérer le badge
+                    var badge = document.getElementById('badge');
+
+                    // Fonction pour incrémenter la valeur du badge
+                    function incrementBadge() {
+                        badge.innerText = parseInt(badge.innerText) + 1;
+                        document.cookie = "badgeValue=" + badge.innerText + "; path=/";
+                    }
+
+                    // Fonction pour décrémenter la valeur du badge
+                    function decrementBadge() {
+                        var value = parseInt(badge.innerText);
+                        if (value > 0) {
+                            badge.innerText = value - 1;
+                        }
+                    }
+                </script>
                 <?php if(session('logged_in')): ?>
                         <div class="dropdown">
                             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -61,7 +78,7 @@
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a class="dropdown-item" href="<?php echo base_url('common/userparameter'); ?>">Parameters</a></li>
-                                <li><a class="dropdown-item" href="#">My Orders</a></li>
+                                <li><a class="dropdown-item" href="<?php echo base_url('common/orders'); ?>">My Orders</a></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('common/login/update_password'); ?>">Update Password</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="<?php echo base_url('common/logout'); ?>">Deconnexion</a></li>

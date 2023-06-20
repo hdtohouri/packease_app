@@ -158,14 +158,13 @@
 						<div class="card mb-3">
 							<div class="card-header bg-transparent text-center">
                 <a href="<?= $product['image'] ?>" data-action="zoom" class="zoom"><img src="<?= $product['image'] ?>" alt="product['name'] ?>" class="img-fluid"></a>
-								<div class="offer"><?= $product['price'] ?>% OFF</div>
 							</div>
 							<div class="card-body">
 								<p class="card-text"><?= $product['description'] ?></p>
-								<p class="card-text"><span class="text-primary">Dh<?= $product['price'] ?></span> <del class="text-muted">Dh<?= $product['price'] ?></del></p>
-								<a href="#" class="btn btn-primary btn-block">
+								<p class="card-text"><span class="text-primary">Dh<?= $product['price'] ?></span></p>
+                <button onclick="incrementBadge()" class="btn btn-primary btn-block">
                   <i class="fas fa-shopping-cart">  </i>
-                  Add to Cart</a>
+                  Add to Cart</button>
 							</div>
 						</div>
 					</div>
@@ -215,7 +214,6 @@
   });
 </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>

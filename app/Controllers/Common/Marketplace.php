@@ -12,7 +12,6 @@ class Marketplace extends BaseController
 		$userModel = new CartModel();
         $data['product_list'] = $userModel->get_product_list();
         return view('common_marketplace', $data);
-	    //echo view("common_marketplace");
 	}
 
 	public function product_list()

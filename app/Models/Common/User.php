@@ -126,7 +126,7 @@ class User extends Model
        $builder->orderBy('subscription_date', 'DESC');
        return $this->findAll();
    }
-   
+
    public function user_info($user_name)
    {
        $builder = $this->builder();
