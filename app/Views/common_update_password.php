@@ -38,11 +38,11 @@
                                     <div class="text-center">
                                         <h5 class="h4 text-gray-900 mb-4">Update Password</h5>
                                         <?php
-                                        if( isset($validation) )
-                                            echo "<div style='color: #ff0000'>".$validation->listErrors()."</div>";
+                                            if( isset($validation) )
+                                                echo "<div style='color: #ff0000'>".$validation->getErrors()."</div>";
 
-                                        if( isset($special_message) )
-                                            echo $special_message;
+                                            if( isset($special_message) )
+                                                echo $special_message;
                                         ?>
                                     </div>					
                                     

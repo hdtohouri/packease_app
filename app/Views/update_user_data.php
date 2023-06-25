@@ -47,11 +47,6 @@
                                     </div>					
                                     
                                     <form class="user" method="post" action="<?= base_url('common/userparameter/update_data') ?>" enctype="multipart/form-data" autocomplete="off">
-                                        
-                                        <div class="mb-4">
-                                            <label for="image" class="form-label">Profil Picture</label>
-                                            <input class="form-control" type="file" name="file">
-                                        </div>
                                         <div class="mb-4">
                                             <input type="tel"  class="form-control" name="number" placeholder="Numero"/>
                                         </div>
@@ -64,7 +59,7 @@
                                         <div class="mb-4 form-group">
                                             <input type="text" class="form-control form-control-user" name="adress" placeholder="Entrer votre Adresse" />
                                         </div>
-                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Save" />
+                                        <input type="submit" class="btn btn-primary btn-user btn-block" value="Save"/>
                                     </form>
 
                                     <hr>

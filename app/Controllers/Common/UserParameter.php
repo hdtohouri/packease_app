@@ -15,19 +15,13 @@ class UserParameter extends BaseController
     public function update_data()
     {
         $validation_rules = array(
-            'file' => [
-                'is_image[file]',
-                'uploaded[file]',
-                'mime_in[file,image/jpg,image/jpeg,image/png,image/webp]',
-                'max_size[file,1024]',
-            ],
             'number' => [
                 'label'  => 'Numero',
                 'rules'  => 'permit_empty|exact_length[13]'
 			],
 			'fullname' => [
                 'label'  => 'Nom Complet',
-                'rules'  => 'permit_empty|alpha_space'
+                'rules'  => 'alpha_space'
             ],
             'email' => [
                 'label'  => 'Email Adresse',
@@ -63,13 +57,6 @@ class UserParameter extends BaseController
 
         $data = [];
 
-        if (!empty($profil_pic)) {
-            $newName = $profil_pic->getRandomName();
-            $profil_pic->move('./uploads', $newName);
-            $url = base_url().'uploads'.'/'.$newName;
-            $data['pic_profil'] = $url;
-        }
-        
         if (!empty($user_number)) {
             $data['numero'] = $user_number;
         }
@@ -88,19 +75,18 @@ class UserParameter extends BaseController
         
         $updated = $userModel->update_data(session('user_id'), $data);
        
-        if (is_null($updated)) 
+        if ($updated) 
         { 
-            $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
+            $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
             echo view('update_user_data', array('special_message' => $message));
-            return;
-            
+            $this->session->set($data);  
         }
 
         else
 	    {
-	        $message = "<div class='alert alert-success' role='alert'>Mise à Jour éffectuée.</div>";
+            $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
             echo view('update_user_data', array('special_message' => $message));
-            $this->session->set($data);
+            return;
         }
         
     }

@@ -7,7 +7,8 @@ class Landing_page extends BaseController
     public function index()
     {
     
-	    $data['api_key'] = 'AIzaSyCujtCrsQkuLxHgmVMzf_CTiUe6m-Kx0hk';
+        $api_key = getEnv('API_KEY');
+        $data['api_key'] = $api_key;
         return view('landing_page', $data);
     }
     

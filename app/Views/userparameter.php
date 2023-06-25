@@ -39,17 +39,37 @@
                 <div class="card mb-4">
                 <div class="card-body text-center">
                 <?php if(session('pic_profil')): ?>
+                    <?php
+                        if( isset($validation) )
+                        echo "<div style='color: #ff0000'>".$validation->getErrors()."</div>";
+
+                        if( isset($special_message) )
+                        echo $special_message;
+                    ?>
                     <img class="avatar avatar-128 rounded-circle p-1"
                     src="<?php echo session('pic_profil'); ?>" alt="avatar">
+                    <form class="user" method="post" action="<?= base_url('common/pic_update/update_pic') ?>" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <i class="fas fa-camera"></i>
+                        <label for="image" class="form-label">Update Profil Picture</label>
+                        <input class="form-control" type="file" name="file">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Save"/>
+                </form>
                 <?php else: ?>
                     <img class="avatar avatar-128 rounded-circle p-1"
                     src="<?php echo base_url('img/user.webp')?>" alt="avatar">
+                    <form class="user" method="post" action="<?= base_url('common/pic_update/update_pic') ?>" enctype="multipart/form-data">
+                    <div class="mb-4">
+                        <i class="fas fa-camera"></i>
+                        <label for="image" class="form-label">Update Profil Picture</label>
+                        <input class="form-control" type="file" name="file">
+                    </div>
+                    <input type="submit" class="btn btn-primary btn-user btn-block" value="Save"/>
+                </form>
                 <?php endif; ?> 
                     <h5 class="my-3"><?php echo session('full_name'); ?></h5>
                     <p class="text-muted mb-4"><?php echo session('adresse'); ?></p>
-                    <div class="d-flex justify-content-center mb-2">
-                    <button type="button" class="btn btn-primary ms-1">Message</button>
-                    </div>
                 </div>
                 </div>
                 <div class="card mb-4 mb-lg-0">
@@ -134,13 +154,17 @@
                         <div class="d-flex justify-content-center mb-2">
                             <h5 class="mb-0">Edit Your informations</h5>
                         </div>
-                        <li class="nav-item">
-                        <a href="<?php echo base_url("common/userparameter/update_data")?>" class="nav-link text-dark">
-                                    <i class="fas fa-plus-circle mr-3 text-primary fa-fw"></i>
-                                    Click Here to Edit !
-                                </a>
-                        </li>
-
+                        
+                            <a href="<?php echo base_url("common/userparameter/update_data")?>" class="nav-link text-dark">
+                                        <i class="fas fa-plus-circle mr-3 text-primary fa-fw"></i>
+                                        Click Here to Edit Your Informations!
+                            </a>
+                        
+                        
+                            <a href="<?php echo base_url("common/userparameter/update_data")?>" class="nav-link text-dark">
+                                        <i class="fas fa-plus-circle mr-3 text-primary fa-fw"></i>
+                                        Click Here to Send Message to PackEase !
+                            </a>
                     </div>
                 </div>
             </div>

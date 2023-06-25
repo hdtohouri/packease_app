@@ -138,7 +138,7 @@ class Login extends BaseController
        
 	}
 
-    public function contactus()
+    /*public function contactus()
 	{
 	    $validation_rules = array(
             'name' => [
@@ -177,7 +177,7 @@ class Login extends BaseController
                 default:
                     die('something is wrong here');
             }
-            return;
+            return view('landing_page');
         }
 
         $contactus_name = $this->request->getPost('name',FILTER_SANITIZE_STRING);
@@ -191,7 +191,7 @@ class Login extends BaseController
         echo $contactus_img;
         return view('landing_page', $data);
         
-	}
+	}*/
 
 
     public function forgotten_password()
@@ -268,23 +268,7 @@ class Login extends BaseController
             'rules'  => 'required|exact_length[6]'
              ],
         );
-        /* if( $this->validate($validation_rules) === false )
-        {
-            $method = $this->request->getMethod();
-            switch( $method ){
-                case 'post':
-                    $this->view_data['validation'] = $this->validator;
-                    break;
-                case 'get':
-                    $this->view_data['special_message'] = $this->session->getFlashdata('special_message');
-                    break;
-                default:
-                    die('something is wrong here');
-            }
 
-            return view('common_reset_password', array('token' => $token));
-        
-        } */
         if ($this->validate($validation_rules) === false) {
             $method = $this->request->getMethod();
             
@@ -357,7 +341,6 @@ class Login extends BaseController
          
         $newpassword = $this->request->getPost('password1',FILTER_SANITIZE_STRING);
         $password_updated = $userModel->update_user_password(session('user_id'), $newpassword);
-       
         if (is_null($password_updated)) 
         { 
             $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
