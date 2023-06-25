@@ -1,62 +1,47 @@
-# CodeIgniter 4 Application Starter
+# PACKEASE_APP E-Commerce Application 
 
-## What is CodeIgniter?
+## What is PACKEASE_APP?
+Packease is a E-commerce application for personalized packaging.
 
-CodeIgniter is a PHP full-stack web framework that is light, fast, flexible and secure.
-More information can be found at the [official site](https://codeigniter.com).
+Packease is a web application based on CodeIgniter 4 that offers a platform for customized packaging. The aim of this application is to familiarize you with the basics of CRUD in CodeIgniter and to enable you to learn Bootstrap. Packease's main features include the ability for users to place orders, manage their account, view order history, edit personal information and add a profile photo. What's more, after placing an order, users will receive a confirmation e-mail containing their purchase total and the list of items ordered.
 
-This repository holds a composer-installable app starter.
-It has been built from the
-[development repository](https://github.com/codeigniter4/CodeIgniter4).
+The application also features an administrator panel. Administrators can add new products to the platform, consult the list of registered users and view the list of orders.
 
-More information about the plans for version 4 can be found in [CodeIgniter 4](https://forum.codeigniter.com/forumdisplay.php?fid=28) on the forums.
+## Packease's main features
 
-The user guide corresponding to the latest version of the framework can be found
-[here](https://codeigniter4.github.io/userguide/).
 
-## Installation & updates
+### Authentication :
+Users can register and log in to their account.
+Users can retrieve and update their password if they forget it.
 
-`composer create-project codeigniter4/appstarter` then `composer update` whenever
-there is a new release of the framework.
+### User profile management:
+Users can view and update their personal information.
+Users can add a profile photo.
 
-When updating, check the release notes to see if there are any changes you might need to apply
-to your `app` folder. The affected files can be copied or merged from
-`vendor/codeigniter4/framework/app`.
+### Ordering:
+Users can browse the products available in the marketplace.
+Users can add items to their shopping cart.
+Users can place an order with selected items.
+Users receive an order confirmation e-mail with details of their purchase.
+Users can view the history of their past orders.
+
+### Administrator panel:
+Administrators can log in to their account.
+Administrators can add new products to the marketplace.
+Administrators can view the list of registered users.
+Administrators can view the list of past orders.
 
 ## Setup
+Fork the project.
+Clone it on your machine.
+Copy `env` to `.env` and tailor for your app, specifically the baseURL ='http://localhost/packease_app/public/'
+and add database settings.
 
-Copy `env` to `.env` and tailor for your app, specifically the baseURL
-and any database settings.
+## Project pictures
 
-## Important Change with index.php
+![Landing_Page](public/project_pic/landing.png)
+![Market Place](public/project_pic/marketplace.png)
+![user login screen](public/project_pic/user-login-screen.png)
+![user info](public/project_pic/userparameter.png)
+![Admin Dashboard](public/project_pic/admin.png)
 
-`index.php` is no longer in the root of the project! It has been moved inside the *public* folder,
-for better security and separation of components.
-
-This means that you should configure your web server to "point" to your project's *public* folder, and
-not to the project root. A better practice would be to configure a virtual host to point there. A poor practice would be to point your web server to the project root and expect to enter *public/...*, as the rest of your logic and the
-framework are exposed.
-
-**Please** read the user guide for a better explanation of how CI4 works!
-
-## Repository Management
-
-We use GitHub issues, in our main repository, to track **BUGS** and to track approved **DEVELOPMENT** work packages.
-We use our [forum](http://forum.codeigniter.com) to provide SUPPORT and to discuss
-FEATURE REQUESTS.
-
-This repository is a "distribution" one, built by our release preparation script.
-Problems with it can be raised on our forum, or as issues in the main repository.
-
-## Server Requirements
-
-PHP version 7.4 or higher is required, with the following extensions installed:
-
-- [intl](http://php.net/manual/en/intl.requirements.php)
-- [mbstring](http://php.net/manual/en/mbstring.installation.php)
-
-Additionally, make sure that the following extensions are enabled in your PHP:
-
-- json (enabled by default - don't turn it off)
-- [mysqlnd](http://php.net/manual/en/mysqlnd.install.php) if you plan to use MySQL
-- [libcurl](http://php.net/manual/en/curl.requirements.php) if you plan to use the HTTP\CURLRequest library
