@@ -127,6 +127,18 @@ class User extends Model
        return $this->findAll();
    }
 
+   public function get_message()
+    {
+        $builder = $this->db->table('message');
+
+        $builder->select('company_name, sender_name, website_url, sender_email, produc_to_pack, produc_image');
+        $builder->orderBy('id_message', 'DESC');
+
+        $query = $builder->get();
+
+        return $query->getResult(); 
+    }
+
    public function user_info($user_name)
    {
        $builder = $this->builder();
@@ -184,7 +196,7 @@ class User extends Model
     public function update_user_password($id,$password){
         $builder = $this ->db->table('utilisateurs_internes');
         $builder->where('id_usr', $id);
-        $builder->update(['usr_secret' => strtoupper(sha1($password)), 'pwd_modification_flag' => 'N']);
+        $builder->update(['usr_secret' => strtoupper(sha1($password)), 'pwd_modification_flag' => 'Y']);
         if($this->db->affectedRows()==1)
         {
             return true;
@@ -194,4 +206,27 @@ class User extends Model
         }
    }
 
+    public function message($data){
+        $builder = $this ->db->table('message');
+        $builder->insert($data);
+        if($this->db->affectedRows()==1)
+        {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function retrievePassword($email){
+        $builder = $this->db->table('utilisateurs_internes');
+        $builder->select('id_usr,full_name,usr_secret');
+        $builder->where('email_address', $email);
+        $result = $builder->get();
+        $row = $result->getRowArray();
+        if(count($result->getResultArray())== 1)
+        {
+            return ['row' => $row]; 
+        }
+    }
 }

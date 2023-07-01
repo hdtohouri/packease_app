@@ -159,12 +159,6 @@
                                         <i class="fas fa-plus-circle mr-3 text-primary fa-fw"></i>
                                         Click Here to Edit Your Informations!
                             </a>
-                        
-                        
-                            <a href="<?php echo base_url("common/userparameter/update_data")?>" class="nav-link text-dark">
-                                        <i class="fas fa-plus-circle mr-3 text-primary fa-fw"></i>
-                                        Click Here to Send Message to PackEase !
-                            </a>
                     </div>
                 </div>
             </div>

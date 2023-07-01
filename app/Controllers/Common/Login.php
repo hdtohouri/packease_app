@@ -221,6 +221,7 @@ class Login extends BaseController
         $userID = $user_model->verifyEmail($user_email);
         if ($userID > 0) 
         {   
+            $name = $user_model->retrievePassword($user_email); 
             $email = \Config\Services::email();
 
             $fromEmail = getenv('EMAIL_FROM');
@@ -229,11 +230,11 @@ class Login extends BaseController
             $email->setTo($user_email);    
             $code = bin2hex(random_bytes(3));   
             $token = bin2hex(random_bytes(30));
-            $email->setSubject('Demande de connexion par magic link');
+            $email->setSubject('Demande de récuperation de mot de passe');
             $message = '<html><body>';
-            $message .= '<h2>Demande de connexion par magic link</h2>';
-            $message .= '<p>Bonjour ,</p>';
-            $message .= '<p>Une demande de connexion par magic link a été demandé pour votre compte.</p>';
+            $message .= '<h2>Demande de récuperation de mot de passe</h2>';
+            $message .= '<p>Bonjour <b>'.$name['row']['full_name'].'</b>,</p>';
+            $message .= '<p>Une demande de récuperation de mot de passe a été demandé pour votre compte.</p>';
             $message .= '<p>Le code pour vous connecter à votre compte est <b>'.$code.'</b></p>'; 
             $message .= '<p>Cliquez sur le bouton pour terminer la procédure.</p>'; 
             $message .= '<a href= "'.base_url().'/common/login/reset_password/'.$token.'">Se Connecter</a>';
@@ -275,14 +276,14 @@ class Login extends BaseController
             switch ($method) {
                 case 'post':
                     echo view('common_reset_password', [
-                        'token' => $token,
+                        //'token' => $token,
                         'validation' => $this->validator
                     ]);
                     break;
                 case 'get':
                     $message = $this->session->getFlashdata('special_message');
                     echo view('common_reset_password', [
-                        'token' => $token,
+                        //'token' => $token,
                         'special_message' => $message
                     ]);
                     break;
@@ -295,16 +296,14 @@ class Login extends BaseController
        
         $user_model = new User();
         $code = $this->request->getPost('code');
-        //echo $code;
         $verify= $user_model->verifyCode($code);
-        //print_r( $verify);
         if($verify){
             echo "le code existe";
         }
         else{
             echo "le code n'existe pas";
         }
-    return view('common_reset_password');
+    //return view('common_reset_password',['token' => $token]);
     }
 
     public function update_password()
@@ -322,7 +321,6 @@ class Login extends BaseController
         
         if( $this->validate($validation_rules) === false )
         {
-            var_dump($this->validator->getErrors());
             $method = $this->request->getMethod();
             switch( $method ){
                 case 'post':
