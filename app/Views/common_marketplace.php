@@ -13,9 +13,6 @@
         <!-- Custom slider with swiperJS-->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
-    <!-- Zoomooz.js CSS -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/zoomooz/dist/zoomooz.min.css">
-
     <script src="https://kit.fontawesome.com/267a08c3f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="icon"  href="<?php echo base_url('favicon.ico'); ?>">
@@ -157,12 +154,12 @@
 					<div class="col-md-4">
 						<div class="card mb-3">
 							<div class="card-header bg-transparent text-center">
-                <a href="<?= $product['image'] ?>" data-action="zoom" class="zoom"><img src="<?= $product['image'] ?>" alt="product['name'] ?>" class="img-fluid"></a>
+                <a href="<?= $product['image'] ?>" ><img src="<?= $product['image'] ?>" alt="product['name'] ?>" class="img-fluid"></a>
 							</div>
 							<div class="card-body">
 								<p class="card-text"><?= $product['description'] ?></p>
 								<p class="card-text"><span class="text-primary">Dh<?= $product['price'] ?></span></p>
-                <button onclick="incrementBadge()" class="btn btn-primary btn-block">
+                <button onclick="incrementBadge(<?php echo $product['id']; ?>)" class="btn btn-primary btn-block">
                   <i class="fas fa-shopping-cart">  </i>
                   Add to Cart</button>
 							</div>
@@ -179,16 +176,6 @@
 
     <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/zoomooz/dist/zoomooz.min.js"></script>
-	<script>
-		$(document).ready(function() {
-			$('.zoom').zoomooz({
-				duration: 300,
-				scale: 1.2
-			});
-		});
-	</script>
 
 <!-- Initialize Swiper -->
 <script>

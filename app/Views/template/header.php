@@ -58,16 +58,17 @@
                     var badge = document.getElementById('badge');
 
                     // Fonction pour incrémenter la valeur du badge
-                    function incrementBadge() {
+                    function incrementBadge(productId) {
                         badge.innerText = parseInt(badge.innerText) + 1;
-                        document.cookie = "badgeValue=" + badge.innerText + "; path=/";
+                        console.log('ID du produit :', productId);
                     }
 
                     // Fonction pour décrémenter la valeur du badge
-                    function decrementBadge() {
+                    function decrementBadge(productId) {
                         var value = parseInt(badge.innerText);
                         if (value > 0) {
                             badge.innerText = value - 1;
+                            console.log('ID du produit :', productId);
                         }
                     }
                 </script>

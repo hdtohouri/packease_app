@@ -13,9 +13,6 @@
         <!-- Custom slider with swiperJS-->
     <link rel="stylesheet"href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"/>
 
-    <!-- Zoomooz.js CSS -->
-	<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/zoomooz/dist/zoomooz.min.css">
-
     <script src="https://kit.fontawesome.com/267a08c3f1.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="<?php echo base_url('css/style.css'); ?>">
     <link rel="icon"  href="<?php echo base_url('favicon.ico'); ?>">
@@ -34,16 +31,9 @@
             </div>
         </div>  
     </section>
-    
-    
-    
-    <?php echo view('template/footer.php');?>
-
-
-
   
-
- 
+    
+    <?php echo view('template/footer.php');?> 
     <script src="<?php echo base_url('bootstrap/js/bootstrap.min.js'); ?>"></script>
 </body>
 </html>
