@@ -47,30 +47,26 @@
                     echo $special_message;
             ?>
 
-        <form class="user" method="post" action="<?php echo base_url('common/login/contactus'); ?>">
+        <form class="user" method="post" action="<?php echo base_url('common/customizations'); ?>">
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="company" class="form-label">Company Name :</label>
-                <input type="text" class="form-control" id="company" placeholder="Company Name">
+                <input type="text" class="form-control" name="company" placeholder="Company Name">
             </div> 
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="name" class="form-label">Your Name :</label>
-                <input type="text" class="form-control" id="name" placeholder="name">
+                <input type="text" class="form-control" name="name" placeholder="name">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="url" class="form-label">Website url :</label>
-                <input type="text" class="form-control" id="url" placeholder="Website url">
+                <input type="text" class="form-control text-lowercase" name="url" placeholder="Your company Website url">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="email" class="form-label">Email address :</label>
-                <input type="email" class="form-control" id="email" placeholder="email">
+                <input type="email" class="form-control text-lowercase" name="email" placeholder="Your email">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="Product" class="form-label">Product to be packed :</label>
-                <input type="text" class="form-control" id="Product" placeholder="Product to be packed">
-            </div>
-            <div class="mb-4 col-md-6 col-center m-auto">
-                <label for="requierements" class="form-label">Specific requierements :</label>
-                <textarea class="form-control" id="requierements" rows="3"></textarea>
+                <input type="text" class="form-control" name="product" placeholder="Name of Product to be packed">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
                 <input type="file" name="userfile" size="20">

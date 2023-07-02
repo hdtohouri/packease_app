@@ -41,6 +41,21 @@ class User extends Model
         }
     }
 
+    public function get_connected_with_code($code)
+    {
+        $builder = $this->builder();
+        $builder = $this->db->table('utilisateurs_internes');
+        $builder->select('usr_secret, full_name,email_address,numero, adresse,id_usr, usr_name,pic_profil');
+        $builder->where('code', $code);
+        $result = $builder->get();
+        $user_details = $result->getRowArray();
+        if(count($result->getResultArray())== 1)
+        {
+             
+            return  ['user_details' => $user_details]; 
+        }
+    }
+
     public function admin_permissions($user_name,$password)
     {
         $builder = $this->builder();

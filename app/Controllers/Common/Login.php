@@ -236,6 +236,7 @@ class Login extends BaseController
             $message .= '<p>Bonjour <b>'.$name['row']['full_name'].'</b>,</p>';
             $message .= '<p>Une demande de récuperation de mot de passe a été demandé pour votre compte.</p>';
             $message .= '<p>Le code pour vous connecter à votre compte est <b>'.$code.'</b></p>'; 
+            $message .= '<p>Une fois connecté vous pourrez changer votre mot de passe.</p>'; 
             $message .= '<p>Cliquez sur le bouton pour terminer la procédure.</p>'; 
             $message .= '<a href= "'.base_url().'/common/login/reset_password/'.$token.'">Se Connecter</a>';
             $message .= "<p>Contactez le service technique de Packease, si vous n'êtes pas à l'origine de cette demande.,</p>";
@@ -269,41 +270,72 @@ class Login extends BaseController
             'rules'  => 'required|exact_length[6]'
              ],
         );
-
-        if ($this->validate($validation_rules) === false) {
-            $method = $this->request->getMethod();
-            
-            switch ($method) {
-                case 'post':
-                    echo view('common_reset_password', [
-                        //'token' => $token,
-                        'validation' => $this->validator
-                    ]);
-                    break;
-                case 'get':
-                    $message = $this->session->getFlashdata('special_message');
-                    echo view('common_reset_password', [
-                        //'token' => $token,
-                        'special_message' => $message
-                    ]);
-                    break;
-                default:
-                    die('something is wrong here');
-            }
-            
-            return;
-        }
        
         $user_model = new User();
-        $code = $this->request->getPost('code');
-        $verify= $user_model->verifyCode($code);
-        if($verify){
-            echo "le code existe";
+        
+        if(!empty($token)){
+            if($update_time = $user_model->verifyToken($token)){
+                if($expiration= $user_model->checkExpireDate($update_time)){
+                    if ($this->validate($validation_rules) === false) {
+                        $method = $this->request->getMethod();
+                        
+                        switch ($method) {
+                            case 'post':
+                                echo view('common_reset_password', [
+                                    'token' => $token,
+                                    'validation' => $this->validator
+                                ]);
+                                break;
+                            case 'get':
+                                $message = $this->session->getFlashdata('special_message');
+                                echo view('common_reset_password', [
+                                    'token' => $token,
+                                    'special_message' => $message
+                                ]);
+                                break;
+                            default:
+                                die('something is wrong here');
+                        }
+                        
+                        return;
+                    }
+
+                    $code = $this->request->getPost('code');
+                    $connexion = $user_model->get_connected_with_code($code);
+                    if(is_null($connexion)){
+                    $message = "<div class='alert alert-danger' role='alert'>Code invalide veuillez réessayer</div>";
+                        echo view('common_reset_password', array('special_message' => $message));
+                        return;
+                    }
+                    else{ 
+                        
+                        $data = [
+                            'user_id' =>  $connexion['user_details']['id_usr'],
+                            'user_name' =>  $connexion['user_details']['usr_name'],
+                            'full_name' =>  $connexion['user_details']['full_name'],
+                            'logged_in' => true,
+                            'adresse' =>  $connexion['user_details']['adresse'],
+                            'email_address' =>  $connexion['user_details']['email_address'],
+                            'numero' =>  $connexion['user_details']['numero'],
+                            'pic_profil' =>  $connexion['user_details']['pic_profil']
+                        ];
+                    
+
+                        $this->session->set($data);
+                        return redirect()->to(base_url(''));
+                    }
+                }else{
+                    $message = "<div class='alert alert-danger' role='alert'>Le lien de réinitialisation du mot de passe a expiré </div>";
+                    return view('common_reset_password', array('error_message' => $message));
+                }
+            }else{
+                $message = "<div class='alert alert-danger' role='alert'>Erreur, Utilisateur non reconnu</div>";
+                return view('common_reset_password', array('error_message' => $message));
+            }
+        }else{
+            $message = "<div class='alert alert-danger' role='alert'>Accès non authorisé</div>";
+            return view('common_reset_password', array('error_message' => $message));
         }
-        else{
-            echo "le code n'existe pas";
-        }
-    //return view('common_reset_password',['token' => $token]);
     }
 
     public function update_password()

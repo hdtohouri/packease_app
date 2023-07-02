@@ -52,7 +52,7 @@
                                             <input type="email" class="form-control form-control-user" id="email" name="email" placeholder="Saisir votre email" autofocus />
                                         </div>
                                         <div class="mb-4 form-group">
-                                            <input type="text" class="form-control form-control-user" id="UserName" name="UserName" placeholder="Nom d'utilisateur" autofocus />
+                                            <input type="text" class="form-control form-control-user text-capitalize" id="UserName" name="UserName" placeholder="Nom d'utilisateur" autofocus />
                                         </div>
                                         <div class="mb-4 form-group">
                                             <input type="password" class="form-control form-control-user" id="UserPwd" name="UserPwd" placeholder="Mot de passe" />
