@@ -46,8 +46,7 @@
                 if( isset($special_message) )
                     echo $special_message;
             ?>
-
-        <form class="user" method="post" action="<?php echo base_url('common/customizations'); ?>">
+        <form class="user" method="post" action="<?= base_url('common/customizations') ?>" enctype="multipart/form-data">
             <div class="mb-4 col-md-6 col-center m-auto">
                 <label for="company" class="form-label">Company Name :</label>
                 <input type="text" class="form-control" name="company" placeholder="Company Name">
@@ -69,7 +68,7 @@
                 <input type="text" class="form-control" name="product" placeholder="Name of Product to be packed">
             </div>
             <div class="mb-4 col-md-6 col-center m-auto">
-                <input type="file" name="userfile" size="20">
+                <input type="file" name="file" size="20">
                 <br><br>
             </div>
              <br>

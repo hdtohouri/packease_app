@@ -74,7 +74,7 @@
                         </a>
                 </li>
                 <li class="nav-item">
-                <a href="#" class="nav-link text-dark">
+                <a href="<?php echo base_url("common/dashboard/list_message")?>" class="nav-link text-dark">
                             <i class="fas fa-comment-alt mr-3 text-primary fa-fw"></i>
                             messages
                         </a>

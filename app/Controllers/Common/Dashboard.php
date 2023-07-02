@@ -100,5 +100,12 @@ class Dashboard extends BaseController
         return view('admin_list_users', $data);
 	}
 
+    public function list_message()
+	{
+	    $userModel = new User();
+        $data['message_list'] = $userModel->get_message();
+        return view('admin_list_message', $data);
+	}
+
 
 }

@@ -28,12 +28,12 @@ class Customizations extends BaseController
                 'label'  => 'Name of Product to be packed',
                 'rules'  => 'required|min_length[4]'
             ],
-			'userfile' => [
+			'file' => [
 				'permit_empty',
-                'is_image[userfile]',
-                'uploaded[userfile]',
-                'mime_in[userfile,image/jpg,image/jpeg,image/png,image/webp]',
-                'max_size[userfile,1024]',
+                'is_image[file]',
+                'uploaded[file]',
+                'mime_in[file,image/jpg,image/jpeg,image/png,image/webp]',
+                'max_size[file,1024]',
             ]
         );
         
@@ -52,26 +52,43 @@ class Customizations extends BaseController
             }
             return view('common_customizations');
         }
-
+        
 		$company_name = $this->request->getPost('company',FILTER_SANITIZE_STRING);
 		$sender_name= $this->request->getPost('name',FILTER_SANITIZE_STRING);
 		$company_website = $this->request->getPost('url');
 		$sender_email= $this->request->getPost('email',FILTER_SANITIZE_EMAIL);
 		$product_name = $this->request->getPost('product',FILTER_SANITIZE_STRING);
-		$product_pic = $this->request->getFile('userfile');
-		
-		echo $company_name;
-		echo $sender_name;
-		echo $company_website;
-		echo $sender_email;
-		echo $product_name;
-		echo $product_pic;
-		/*if (!empty($product_pic)) {
-            $newName = $profil_pic->getRandomName();
+		$product_pic = $this->request->getFile('file');
+
+		if (!empty($product_pic)) {
+            $newName = $product_pic->getRandomName();
             $product_pic->move('./uploads', $newName);
             $url = base_url().'uploads'.'/'.$newName;
-        }*/
-	    //return view('common_customizations');
+        }
+
+        $data = [
+            'company_name'=>$company_name,
+            'sender_name'=>$sender_name,
+            'website_url'=>$company_website,
+            'sender_email'=>$sender_email,
+            'produc_to_pack'=>$product_name,
+            'produc_image'=>$url,
+        ];
+
+        $userModel = new User();
+        $update_message = $userModel->message($data);
+
+        if( is_null($update_message) )
+	    {
+	        $message = "<div class='alert alert-danger' role='alert'>Une erreur est survenue. Merci de reésayer</div>";
+            echo view('common_customizations', array('special_message' => $message));
+            return;
+        }
+        else {
+            $message = "<div class='alert alert-success' role='alert'>Votre message a bien été pris en compte</div>";
+            echo view('common_customizations', array('special_message' => $message));
+            return;
+        }
 	}
 
 

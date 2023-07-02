@@ -14,13 +14,6 @@ class Marketplace extends BaseController
         return view('common_marketplace', $data);
 	}
 
-	public function product_list()
-	{
-	    $userModel = new CartModel();
-        $data['user_list'] = $userModel->get_product_list();
-        return view('common_marketplace', $data);
-	}
-
 	public function pdf()
 	{
 		// set the path to the PDF file
