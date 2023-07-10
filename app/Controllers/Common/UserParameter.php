@@ -84,7 +84,7 @@ class UserParameter extends BaseController
 
         else
 	    {
-            $message = "<div class='alert alert-danger' role='alert'>Erreur. Merci de reésayer</div>";
+            $message = "<div class='alert alert-danger' role='alert'>Une erreur est survenue. Merci de reésayer</div>";
             echo view('update_user_data', array('special_message' => $message));
             return;
         }

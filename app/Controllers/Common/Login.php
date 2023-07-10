@@ -138,62 +138,6 @@ class Login extends BaseController
        
 	}
 
-    /*public function contactus()
-	{
-	    $validation_rules = array(
-            'name' => [
-                'label'  => 'Name',
-                'rules'  => 'required|min_length[3]|max_length[25]'
-            ],
-            'email' => [
-                'label'  => 'Email',
-                'rules'  => 'required|valid_emails'
-            ],
-            'message' => [
-                'rules'  => 'required'
-            ],
-            'userfile' => [
-                'label' => 'Image File',
-                'rules' => [
-                    'uploaded[userfile]',
-                    'is_image[userfile]',
-                    'mime_in[userfile,image/jpg,image/jpeg,image/png,image/webp]',
-                    'max_size[userfile,100]',
-                    'max_dims[userfile,1024,768]',
-                ],
-            ],
-        );
-        
-	    if( $this->validate($validation_rules) === false )
-        {
-            $method = $this->request->getMethod();
-            switch( $method ){
-                case 'post':
-                    $this->view_data['validation'] = $this->validator;
-                    break;
-                case 'get':
-                    $this->view_data['special_message'] = $this->session->getFlashdata('special_message');
-                    break;
-                default:
-                    die('something is wrong here');
-            }
-            return view('landing_page');
-        }
-
-        $contactus_name = $this->request->getPost('name',FILTER_SANITIZE_STRING);
-        $contactus_email = $this->request->getPost('email',FILTER_SANITIZE_EMAIL);
-        $contactus_message = $this->request->getPost('message',FILTER_SANITIZE_STRING);
-        $contactus_img = $this->request->getPost('userfile');
-
-        echo $contactus_name;
-        echo $contactus_email;
-        echo $contactus_message;
-        echo $contactus_img;
-        return view('landing_page', $data);
-        
-	}*/
-
-
     public function forgotten_password()
     {   
          $validation_rules = array(
